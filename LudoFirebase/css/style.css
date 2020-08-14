@@ -1,0 +1,49 @@
+body {
+    background-color: wheat;
+    margin: 0px;
+}
+
+.selected {
+    stroke: blue;
+    stroke-width: 0.8
+}
+
+.pieces {
+    stroke: #000000;
+    stroke-width: 0.4
+}
+
+.rect {
+    stroke: #000000;
+    stroke-width: 0.4;
+}
+
+.polygon {
+    mix-blend-mode: normal;
+    stroke: #000000;
+    stroke-width: 0.4;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    paint-order: normal
+}
+
+.white {
+    fill: #ffffff;
+
+}
+
+.blue {
+    fill: #00ffff;
+}
+
+.green {
+    fill: #00ff00;
+}
+
+.yellow {
+    fill: #ffff00;
+}
+
+.red {
+    fill: #ff0000;
+}
