@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div id="brett"></div>
+<div>
+    <input onclick="reset()" type="button" value="Reset">
+    <input onclick="save()" type="button" value="Save">
+    <input onclick="restore()" type="button" value="Restore">
+    <input onclick="rollDice(); show()" type="button" value='Roll Dice'>
+    <p style="font-size: 25px; color: blue; display: inline;" id="diceP"></p>
+</div>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script>
+        show()
+    </script>
+</body>
+
+</html>
