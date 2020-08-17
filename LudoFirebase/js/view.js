@@ -1,8 +1,8 @@
-let x = 'this.x.baseVal.value';
-let y = 'this.y.baseVal.value';
-
 function show() {
-   document.getElementById('diceP').innerHTML = diceNumber;
+   let x = 'this.x.baseVal.value';
+   let y = 'this.y.baseVal.value';
+   let brettDiv = document.getElementById('app');
+   document.getElementById('diceP').innerHTML = model.diceNumber;
    brettDiv.innerHTML = `<svg viewBox="0 0 315 151" width="100%" height="100%">
    <path onclick="movePiece(61, 70)" class="polygon green" d="M 60.2,60.2 75.2,75.2 60.2,90.2 Z" id="gW" />
    <path onclick="movePiece(70, 79)" class="polygon yellow" d="M 60.2,90.2 75.2,75.2 90.21,90.2 Z" id="yW" />
@@ -104,22 +104,22 @@ function show() {
    <rect onclick="movePiece(${x}, ${y})" class="rect blue" id="rect3111-2-5" width="10" height="10" x="124.2" y="16.2" />
    <rect onclick="movePiece(${x}, ${y})" class="rect blue" id="rect3111-2-1" width="10" height="10" x="124.2" y="33.2" />
    <rect onclick="movePiece(${x}, ${y})" class="rect blue" id="rect3111-2-7" width="10" height="10" x="106.2" y="33.2" />
-   <circle onclick="selectPiece(pieces[0])" class="${pieces[0].selected} yellow" id="${pieces[0].name}" cx="${pieces[0].cx}" cy="${pieces[0].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[1])" class="${pieces[1].selected} yellow" id="${pieces[1].name}" cx="${pieces[1].cx}" cy="${pieces[1].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[2])" class="${pieces[2].selected} yellow" id="${pieces[2].name}" cx="${pieces[2].cx}" cy="${pieces[2].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[3])" class="${pieces[3].selected} yellow" id="${pieces[3].name}" cx="${pieces[3].cx}" cy="${pieces[3].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[4])" class="${pieces[4].selected} red" id="${pieces[4].name}" cx="${pieces[4].cx}" cy="${pieces[4].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[5])" class="${pieces[5].selected} red" id="${pieces[5].name}" cx="${pieces[5].cx}" cy="${pieces[5].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[6])" class="${pieces[6].selected} red" id="${pieces[6].name}" cx="${pieces[6].cx}" cy="${pieces[6].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[7])" class="${pieces[7].selected} red" id="${pieces[7].name}" cx="${pieces[7].cx}" cy="${pieces[7].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[8])" class="${pieces[8].selected} blue" id="${pieces[8].name}" cx="${pieces[8].cx}" cy="${pieces[8].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[9])" class="${pieces[9].selected} blue" id="${pieces[9].name}" cx="${pieces[9].cx}" cy="${pieces[9].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[10])" class="${pieces[10].selected} blue" id="${pieces[10].name}" cx="${pieces[10].cx}" cy="${pieces[10].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[11])" class="${pieces[11].selected} blue" id="${pieces[11].name}" cx="${pieces[11].cx}" cy="${pieces[11].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[12])" class="${pieces[12].selected} green" id="${pieces[12].name}" cx="${pieces[12].cx}" cy="${pieces[12].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[13])" class="${pieces[13].selected} green" id="${pieces[13].name}" cx="${pieces[13].cx}" cy="${pieces[13].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[14])" class="${pieces[14].selected} green" id="${pieces[14].name}" cx="${pieces[14].cx}" cy="${pieces[14].cy}" r="3" />
-   <circle onclick="selectPiece(pieces[15])" class="${pieces[15].selected} green" id="${pieces[15].name}" cx="${pieces[15].cx}" cy="${pieces[15].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[0], '${modelPieces[0].name}')" class="${modelPieces[0].selected} yellow" id="${modelPieces[0].name}" cx="${modelPieces[0].cx}" cy="${modelPieces[0].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[1], '${modelPieces[1].name}')" class="${modelPieces[1].selected} yellow" id="${modelPieces[1].name}" cx="${modelPieces[1].cx}" cy="${modelPieces[1].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[2], '${modelPieces[2].name}')" class="${modelPieces[2].selected} yellow" id="${modelPieces[2].name}" cx="${modelPieces[2].cx}" cy="${modelPieces[2].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[3], '${modelPieces[3].name}')" class="${modelPieces[3].selected} yellow" id="${modelPieces[3].name}" cx="${modelPieces[3].cx}" cy="${modelPieces[3].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[4], '${modelPieces[4].name}')" class="${modelPieces[4].selected} red" id="${modelPieces[4].name}" cx="${modelPieces[4].cx}" cy="${modelPieces[4].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[5], '${modelPieces[5].name}')" class="${modelPieces[5].selected} red" id="${modelPieces[5].name}" cx="${modelPieces[5].cx}" cy="${modelPieces[5].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[6], '${modelPieces[6].name}')" class="${modelPieces[6].selected} red" id="${modelPieces[6].name}" cx="${modelPieces[6].cx}" cy="${modelPieces[6].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[7], '${modelPieces[7].name}')" class="${modelPieces[7].selected} red" id="${modelPieces[7].name}" cx="${modelPieces[7].cx}" cy="${modelPieces[7].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[8], '${modelPieces[8].name}')" class="${modelPieces[8].selected} blue" id="${modelPieces[8].name}" cx="${modelPieces[8].cx}" cy="${modelPieces[8].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[9], '${modelPieces[9].name}')" class="${modelPieces[9].selected} blue" id="${modelPieces[9].name}" cx="${modelPieces[9].cx}" cy="${modelPieces[9].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[10], '${modelPieces[10].name}')" class="${modelPieces[10].selected} blue" id="${modelPieces[10].name}" cx="${modelPieces[10].cx}" cy="${modelPieces[10].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[11], '${modelPieces[11].name}')" class="${modelPieces[11].selected} blue" id="${modelPieces[11].name}" cx="${modelPieces[11].cx}" cy="${modelPieces[11].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[12], '${modelPieces[12].name}')" class="${modelPieces[12].selected} green" id="${modelPieces[12].name}" cx="${modelPieces[12].cx}" cy="${modelPieces[12].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[13], '${modelPieces[13].name}')" class="${modelPieces[13].selected} green" id="${modelPieces[13].name}" cx="${modelPieces[13].cx}" cy="${modelPieces[13].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[14], '${modelPieces[14].name}')" class="${modelPieces[14].selected} green" id="${modelPieces[14].name}" cx="${modelPieces[14].cx}" cy="${modelPieces[14].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[15]) , '${modelPieces[15].name}'" class="${modelPieces[15].selected} green" id="${modelPieces[15].name}" cx="${modelPieces[15].cx}" cy="${modelPieces[15].cy}" r="3" />
    </svg>`;
    console.log('Show function has run')
 }

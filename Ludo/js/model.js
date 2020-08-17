@@ -1,5 +1,5 @@
 let brettDiv = document.getElementById('brett');
-let selectedPiece  = null;
+let selectedPiece = null;
 let diceNumber = null;
 let savedGame = null;
 let savedDice = null;
@@ -22,3 +22,8 @@ let pieces = [
     { name: 'green3', cx: '21.2', cy: '38.2', selected: 'pieces' },
     { name: 'green4', cx: '39.2', cy: '38.2', selected: 'pieces' },
 ];
+
+let modely = {
+    pieces: [],
+    numbers: 'hei',
+}

@@ -9,20 +9,17 @@
 </head>
 
 <body>
-    <div id="brett"></div>
+    <div id="app"></div>
     <div>
         <input onclick="reset()" type="button" value="Reset">
         <input onclick="save()" type="button" value="Save">
         <input onclick="restore()" type="button" value="Restore">
         <input onclick="rollDice(); show()" type="button" value='Roll Dice'>
-        <div id="test"> Loading...</div>
         <p style="font-size: 25px; color: blue; display: inline;" id="diceP"></p>
     </div>
     <script src="js/model.js"></script>
     <script src="js/view.js"></script>
     <script src="js/controller.js"></script>
-    <script>
-        show()
     </script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
@@ -44,24 +41,84 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
-        let db = firebase.firestore();
-        
 
-        // db.collection('model').get().then(
-            db.collection('model').onSnapshot(
+        let db = firebase.firestore()
+        let model = null;
+        let modelPieces = null;
+
+        db.collection('app').doc('model').onSnapshot(
             function (collectionSnapshot) {
-                let html = '<ul>';
-                let testing = null;
-                collectionSnapshot.forEach(
-                    function (modelItemSnapshot) {
-                        console.log(modelItemSnapshot.data().pieces[0]);
-                        testing = modelItemSnapshot.data().pieces[0].name;
-                        html += '<li>' + testing + '</li>'
-                    }
-                )
-                document.getElementById('test').innerHTML = html;
+                console.log(collectionSnapshot.data().pieces);
+                model = collectionSnapshot.data();
+                modelPieces = collectionSnapshot.data().pieces;
+                show()
             }
         )
+
+        function addDatabase() {
+            // -> Lager ny collection om den ikke finnes <-
+            return db.collection("app").doc('model').set({
+                Nei: 'Nei'
+            }
+            ).then(function () {
+                console.log("Document successfully written!");
+            })
+                .catch(function (error) {
+                    console.error("Error writing document: ", error);
+                });
+        }
+
+        function addDatabaseMerge() {
+            // -> Samme som over, bare at den merger og ikke replacer hele <-
+            return db.collection("testModel").doc('test').set({
+                Neiduen: 'Nei'
+            }, {
+                merge: true
+            }).then(function () {
+                console.log("Document successfully written!");
+            })
+                .catch(function (error) {
+                    console.error("Error writing document: ", error);
+                });
+        }
+
+        function getModelInfo() {
+            return db.collection("model").doc("Bw3HpNujEkSEPHvSTMWD").get().then(function (doc) {
+                if (doc.exists) {
+                    console.log("Document data:", doc.data());
+                } else {
+                    console.log("No such document!");
+                }
+            }).catch(function (error) {
+                console.log("Error getting document:", error);
+            });
+        }
+
+        // -> Denne er samme som oppe, uten at den oppdaterer seg realtime <-
+        //         db.collection('model').doc('Bw3HpNujEkSEPHvSTMWD').get().then(
+        //             function (collectionSnapshot) {
+        //                 console.log(collectionSnapshot.data().pieces);
+        //                 model = collectionSnapshot.data();
+        //                 pieceObject = collectionSnapshot.data().pieces;
+        //                 selectedPiece = collectionSnapshot.data().selectedPiece;
+        //                 show()
+        //             }
+        //         )
+
+        // -> Samme som over, men er for hver array med forEach() <-
+        //          db.collection('model').onSnapshot(
+        //             function (collectionSnapshot) {
+        //                 collectionSnapshot.forEach(
+        //                 function (modelItemSnapshot) {
+        //                 console.log(modelItemSnapshot.data().pieces);
+        //                 model = modelItemSnapshot.data();
+        //                 pieceObject = modelItemSnapshot.data().pieces;
+        //                 selectedPiece = modelItemSnapshot.data().selectedPiece;
+        //             }
+        //         )
+        //         show()
+        //     }
+        // )
     </script>
 </body>
 
