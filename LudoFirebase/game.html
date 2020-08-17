@@ -15,6 +15,7 @@
         <input onclick="save()" type="button" value="Save">
         <input onclick="restore()" type="button" value="Restore">
         <input onclick="rollDice(); show()" type="button" value='Roll Dice'>
+        <div id="test"> Loading...</div>
         <p style="font-size: 25px; color: blue; display: inline;" id="diceP"></p>
     </div>
     <script src="js/model.js"></script>
@@ -25,14 +26,12 @@
     </script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-analytics.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-firestore.js"></script>
     <script>
         // Your web app's Firebase configuration
-        var firebaseConfig = {
+        let firebaseConfig = {
             apiKey: "AIzaSyBo_9YA4kqwXLu5XktffPjEpOoc26q7zYE",
             authDomain: "teste-project-d52c9.firebaseapp.com",
             databaseURL: "https://teste-project-d52c9.firebaseio.com",
@@ -45,6 +44,24 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
+        let db = firebase.firestore();
+        
+
+        // db.collection('model').get().then(
+            db.collection('model').onSnapshot(
+            function (collectionSnapshot) {
+                let html = '<ul>';
+                let testing = null;
+                collectionSnapshot.forEach(
+                    function (modelItemSnapshot) {
+                        console.log(modelItemSnapshot.data().pieces[0]);
+                        testing = modelItemSnapshot.data().pieces[0].name;
+                        html += '<li>' + testing + '</li>'
+                    }
+                )
+                document.getElementById('test').innerHTML = html;
+            }
+        )
     </script>
 </body>
 

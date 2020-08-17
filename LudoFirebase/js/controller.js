@@ -19,10 +19,14 @@ function selectPiece(piece) {
 function sameSpace() {
     for (let value of pieces) {
         console.log(value);
+        if (value.cx == previousPieces[0].cx) {
+            return
+        }
     }
 }
 
 function movePiece(thisX, thisY) {
+    sameSpace()
     if (selectedPiece == null) return console.log('No piece chosen');
     selectedPiece.cx = thisX + 5;
     selectedPiece.cy = thisY + 5;
