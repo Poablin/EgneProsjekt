@@ -88,22 +88,22 @@ function show() {
    <rect y="100.2" x="100.2" height="40" width="40" id="rect1366-0" class="rect white" />
    <rect y="10.2" x="10.2" height="40" width="40" id="rect1366-3" class="rect white" />
    <rect y="10.2" x="100.2" height="40" width="40" id="rect1366-5" class="rect white" />
-   <rect y="106.2" x="124.2" height="10" width="10" id="rect3121-7-3-7" class="rect red" />
-   <rect y="106.2" x="106.2" height="10" width="10" id="rect3121-7-3-5" class="rect red" />
-   <rect y="123.2" x="106.2" height="10" width="10" id="rect3121-7-3-4" class="rect red" />
-   <rect y="123.2" x="124.2" height="10" width="10" id="rect3121-7-3-47" class="rect red" />
-   <rect y="106.2" x="34.2" height="10" width="10" id="rect3152-5-4-1" class="rect yellow" />
-   <rect y="106.2" x="16.2" height="10" width="10" id="rect3152-5-4-4" class="rect yellow" />
-   <rect y="123.2" x="16.2" height="10" width="10" id="rect3152-5-4-40" class="rect yellow" />
-   <rect y="123.2" x="34.2" height="10" width="10" id="rect3152-5-4-9" class="rect yellow" />
-   <rect class="rect green" id="rect3119-7-9" width="10" height="10" x="16.2" y="16.2" />
-   <rect class="rect green" id="rect3119-7-1" width="10" height="10" x="34.2" y="16.2" />
-   <rect class="rect green" id="rect3119-7-4" width="10" height="10" x="34.2" y="33.2" />
-   <rect class="rect green" id="rect3119-7-7" width="10" height="10" x="16.2" y="33.2" />
-   <rect class="rect blue" id="rect3111-2-0" width="10" height="10" x="106.2" y="16.2" />
-   <rect class="rect blue" id="rect3111-2-5" width="10" height="10" x="124.2" y="16.2" />
-   <rect class="rect blue" id="rect3111-2-1" width="10" height="10" x="124.2" y="33.2" />
-   <rect class="rect blue" id="rect3111-2-7" width="10" height="10" x="106.2" y="33.2" />
+   <rect onclick="movePiece(${x}, ${y})" y="106.2" x="124.2" height="10" width="10" id="rect3121-7-3-7" class="rect red" />
+   <rect onclick="movePiece(${x}, ${y})" y="106.2" x="106.2" height="10" width="10" id="rect3121-7-3-5" class="rect red" />
+   <rect onclick="movePiece(${x}, ${y})" y="123.2" x="106.2" height="10" width="10" id="rect3121-7-3-4" class="rect red" />
+   <rect onclick="movePiece(${x}, ${y})" y="123.2" x="124.2" height="10" width="10" id="rect3121-7-3-47" class="rect red" />
+   <rect onclick="movePiece(${x}, ${y})" y="106.2" x="34.2" height="10" width="10" id="rect3152-5-4-1" class="rect yellow" />
+   <rect onclick="movePiece(${x}, ${y})" y="106.2" x="16.2" height="10" width="10" id="rect3152-5-4-4" class="rect yellow" />
+   <rect onclick="movePiece(${x}, ${y})" y="123.2" x="16.2" height="10" width="10" id="rect3152-5-4-40" class="rect yellow" />
+   <rect onclick="movePiece(${x}, ${y})" y="123.2" x="34.2" height="10" width="10" id="rect3152-5-4-9" class="rect yellow" />
+   <rect onclick="movePiece(${x}, ${y})" class="rect green" id="rect3119-7-9" width="10" height="10" x="16.2" y="16.2" />
+   <rect onclick="movePiece(${x}, ${y})" class="rect green" id="rect3119-7-1" width="10" height="10" x="34.2" y="16.2" />
+   <rect onclick="movePiece(${x}, ${y})" class="rect green" id="rect3119-7-4" width="10" height="10" x="34.2" y="33.2" />
+   <rect onclick="movePiece(${x}, ${y})" class="rect green" id="rect3119-7-7" width="10" height="10" x="16.2" y="33.2" />
+   <rect onclick="movePiece(${x}, ${y})" class="rect blue" id="rect3111-2-0" width="10" height="10" x="106.2" y="16.2" />
+   <rect onclick="movePiece(${x}, ${y})" class="rect blue" id="rect3111-2-5" width="10" height="10" x="124.2" y="16.2" />
+   <rect onclick="movePiece(${x}, ${y})" class="rect blue" id="rect3111-2-1" width="10" height="10" x="124.2" y="33.2" />
+   <rect onclick="movePiece(${x}, ${y})" class="rect blue" id="rect3111-2-7" width="10" height="10" x="106.2" y="33.2" />
    <circle onclick="selectPiece(pieces[0])" class="${pieces[0].selected} yellow" id="${pieces[0].name}" cx="${pieces[0].cx}" cy="${pieces[0].cy}" r="3" />
    <circle onclick="selectPiece(pieces[1])" class="${pieces[1].selected} yellow" id="${pieces[1].name}" cx="${pieces[1].cx}" cy="${pieces[1].cy}" r="3" />
    <circle onclick="selectPiece(pieces[2])" class="${pieces[2].selected} yellow" id="${pieces[2].name}" cx="${pieces[2].cx}" cy="${pieces[2].cy}" r="3" />
