@@ -13,7 +13,7 @@ db.collection('app').doc('model').onSnapshot(
 
 function addDatabase() {
     // -> Lager ny collection om den ikke finnes <-
-    return db.collection("app").doc('model').set({
+    return db.collection("testModel").doc('test').set({
         Nei: 'Nei'
     }
     ).then(function () {
