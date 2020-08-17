@@ -1,5 +1,5 @@
 function selectPiece(piece, id) {
-    sameSpace(id || 'yellow1')
+    sameSpace(id)
     if (model.selectedPiece != null && model.selectedPiece != piece) {
         ;
         show()

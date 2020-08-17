@@ -119,7 +119,7 @@ function show() {
    <circle onclick="selectPiece(modelPieces[12], '${modelPieces[12].name}')" class="pieces green" id="${modelPieces[12].name}" cx="${modelPieces[12].cx}" cy="${modelPieces[12].cy}" r="3" />
    <circle onclick="selectPiece(modelPieces[13], '${modelPieces[13].name}')" class="pieces green" id="${modelPieces[13].name}" cx="${modelPieces[13].cx}" cy="${modelPieces[13].cy}" r="3" />
    <circle onclick="selectPiece(modelPieces[14], '${modelPieces[14].name}')" class="pieces green" id="${modelPieces[14].name}" cx="${modelPieces[14].cx}" cy="${modelPieces[14].cy}" r="3" />
-   <circle onclick="selectPiece(modelPieces[15]) , '${modelPieces[15].name}'" class="pieces green" id="${modelPieces[15].name}" cx="${modelPieces[15].cx}" cy="${modelPieces[15].cy}" r="3" />
+   <circle onclick="selectPiece(modelPieces[15], '${modelPieces[15].name}')" class="pieces green" id="${modelPieces[15].name}" cx="${modelPieces[15].cx}" cy="${modelPieces[15].cy}" r="3" />
    </svg>`;
    console.log('Show function has run')
 }
