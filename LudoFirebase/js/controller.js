@@ -1,17 +1,16 @@
 function selectPiece(piece, id) {
     sameSpace(id || 'yellow1')
     if (model.selectedPiece != null && model.selectedPiece != piece) {
-        model.selected = 'pieces';
+        ;
         show()
     }
     if (model.selectedPiece != null && model.selectedPiece == piece) {
-        model.selected = 'pieces';
+        ;
         model.selectedPiece = null;
         console.log('Unselected Piece')
         return show()
     }
-    model.selectedPiece = piece;
-    model.selectedPiece.selected = 'selected';
+    model.selectedPiece = piece;;
     console.log(model.selectedPiece)
     show()
 }
@@ -58,12 +57,10 @@ function reset() {
 }
 
 function save() {
-    if (model.selectedPiece != null) {
-        model.selected = 'pieces';
+    if (model.selectedPiece != null) {;
         model.selectedPiece = null;
         show()
     }
-    model.selected = 'pieces'
     model.savedGame = JSON.parse(JSON.stringify(modelPieces));
     model.savedDice = model.diceNumber;
     console.log('Game saved');
@@ -71,7 +68,6 @@ function save() {
 
 function restore() {
     if (model.savedGame == null) return console.log('No saved game');
-    model.selected = 'pieces'
     model.selectedPiece = null;
     model.diceNumber = model.savedDice;
     modelPieces = JSON.parse(JSON.stringify(model.savedGame));
