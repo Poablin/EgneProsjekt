@@ -10,18 +10,41 @@
 
 <body>
     <div id="brett"></div>
-<div>
-    <input onclick="reset()" type="button" value="Reset">
-    <input onclick="save()" type="button" value="Save">
-    <input onclick="restore()" type="button" value="Restore">
-    <input onclick="rollDice(); show()" type="button" value='Roll Dice'>
-    <p style="font-size: 25px; color: blue; display: inline;" id="diceP"></p>
-</div>
+    <div>
+        <input onclick="reset()" type="button" value="Reset">
+        <input onclick="save()" type="button" value="Save">
+        <input onclick="restore()" type="button" value="Restore">
+        <input onclick="rollDice(); show()" type="button" value='Roll Dice'>
+        <p style="font-size: 25px; color: blue; display: inline;" id="diceP"></p>
+    </div>
     <script src="js/model.js"></script>
     <script src="js/view.js"></script>
     <script src="js/controller.js"></script>
     <script>
         show()
+    </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBo_9YA4kqwXLu5XktffPjEpOoc26q7zYE",
+            authDomain: "teste-project-d52c9.firebaseapp.com",
+            databaseURL: "https://teste-project-d52c9.firebaseio.com",
+            projectId: "teste-project-d52c9",
+            storageBucket: "teste-project-d52c9.appspot.com",
+            messagingSenderId: "574239903404",
+            appId: "1:574239903404:web:258f8a1eb2c0cc88639909",
+            measurementId: "G-HMXQHTL53T"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
     </script>
 </body>
 
