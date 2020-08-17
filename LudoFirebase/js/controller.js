@@ -14,7 +14,6 @@ function selectPiece(piece, id) {
     model.selectedPiece.selected = 'selected';
     console.log(model.selectedPiece)
     show()
-
 }
 
 function sameSpace(id) {
