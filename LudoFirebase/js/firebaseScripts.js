@@ -39,7 +39,7 @@ function addDatabaseMerge() {
 }
 
 function getModelInfo() {
-    return db.collection("model").doc("Bw3HpNujEkSEPHvSTMWD").get().then(function (doc) {
+    return db.collection("app").doc("model").get().then(function (doc) {
         if (doc.exists) {
             console.log("Document data:", doc.data());
         } else {
