@@ -11,6 +11,7 @@
 // }
 
 function selectPiece(piece) {
+    // Problemet nå er at model.selectedPiece ikke blir like piece, siden det er desimal forskjeller.
     if (model.selectedPiece != null && model.selectedPiece == piece) {
         model.selectedPiece.selected = 'pieces';
         model.selectedPiece = null;
