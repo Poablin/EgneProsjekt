@@ -1,25 +1,15 @@
-// function selectPiece(piece) {
-//     if (model.selectedPiece != null && model.selectedPiece == piece) {
-//         model.selectedPiece.selected = 'pieces';
-//         model.selectedPiece = null;
-//         console.log(model.selectedPiece)
-//         return show()
-//     }
-//     if (model.selectedPiece == piece) return model.selectedPiece = null;
-//     model.selectedPiece = piece;
-//     show()
-// }
-
 function selectPiece(piece) {
     // Problemet nå er at model.selectedPiece ikke blir like piece, siden det er desimal forskjeller.
     if (model.selectedPiece != null && model.selectedPiece == piece) {
-        model.selectedPiece.selected = 'pieces';
         model.selectedPiece = null;
         return show()
     }
     model.selectedPiece = piece;
-    model.selectedPiece.selected = 'selected';
-
+    db.collection('app').doc('model').set(
+        {
+            selectedPiece: piece,
+        }, { merge: true }
+    )
     show()
 }
 
@@ -69,22 +59,28 @@ function reset() {
         selectedPiece: null,
         diceNumber: null,
     }, { merge: true })
-    show()
+    updateAll()
     console.log('Game reset');
 }
 
 function save() {
     db.collection('app').doc('model').set({
-        savedGame: JSON.parse(JSON.stringify(modelPieces)),
+        savedGame: modelPieces,
         savedDice: model.diceNumber,
     }, { merge: true })
 }
 
 function restore() {
-    if (model.savedGame == null) return console.log('No saved game');
-    model.selectedPiece = null;
-    model.diceNumber = model.savedDice;
-    modelPieces = JSON.parse(JSON.stringify(model.savedGame));
-    show()
-    console.log('Game restored');
+    // -> Get det man skal ha først, så set etterpå <-
+    db.collection('app').doc('model').get().then(
+        function (snapshot) {
+            model.savedGame = snapshot.data().savedGame;
+            model.diceNumber = snapshot.data().savedDice;
+        }
+    )
+    db.collection('app').doc('model').set({
+        pieces: model.savedGame,
+        diceNumber: model.savedDice,
+    }, { merge: true }
+    )
 }

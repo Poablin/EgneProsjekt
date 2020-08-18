@@ -2,14 +2,17 @@ let db = firebase.firestore()
 let model = null;
 let modelPieces = null;
 
-db.collection('app').doc('model').onSnapshot(
-    function (collectionSnapshot) {
-        console.log(collectionSnapshot.data().pieces);
-        model = collectionSnapshot.data();
-        modelPieces = collectionSnapshot.data().pieces;
-        show()
-    }
-)
+function updateAll() {
+    return db.collection('app').doc('model').onSnapshot(
+        function (collectionSnapshot) {
+            console.log(collectionSnapshot.data().pieces);
+            model = collectionSnapshot.data();
+            modelPieces = collectionSnapshot.data().pieces;
+            show()
+        }
+    )
+}
+
 
 function addDatabase() {
     // -> Lager ny collection om den ikke finnes <-
