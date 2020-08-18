@@ -12,7 +12,7 @@ function show() {
    <rect class="rect green" id="rect3090" width="60" height="60" x="0.2" y="0.2" />
    <rect class="rect yellow" id="rect3123" width="60" height="60" x="0.2" y="90.2" />
    <rect class="rect blue" id="rect3115" width="60" height="60"x="90.2" y="0.2" />
-   <rect onclick="movePiece(${x}, ${y})" class="rect white" id="rect3152" width="10" height="10" y="140.2" x="70.2" />
+   <rect onclick="movePiece(${x}, ${y}, rect3152)" class="rect white" id="rect3152" width="10" height="10" y="140.2" x="70.2" />
    <rect onclick="movePiece(${x}, ${y})" class="rect white" id="rect3152" width="10" height="10" y="140.2" x="80.2" />
    <rect onclick="movePiece(${x}, ${y})" class="rect white" id="rect3152" width="10" height="10" y="80.2" x="140.2" />
    <rect onclick="movePiece(${x}, ${y})" class="rect white" id="rect3152" width="10" height="10" y="70.2" x="140.2" />

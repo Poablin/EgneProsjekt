@@ -1,18 +1,27 @@
-function selectPiece(piece, id) {
-    sameSpace(id)
-    if (model.selectedPiece != null && model.selectedPiece != piece) {
-        ;
-        show()
-    }
+// function selectPiece(piece) {
+//     if (model.selectedPiece != null && model.selectedPiece == piece) {
+//         model.selectedPiece.selected = 'pieces';
+//         model.selectedPiece = null;
+//         console.log(model.selectedPiece)
+//         return show()
+//     }
+//     if (model.selectedPiece == piece) return model.selectedPiece = null;
+//     model.selectedPiece = piece;
+//     show()
+// }
+
+function selectPiece(piece) {
     if (model.selectedPiece != null && model.selectedPiece == piece) {
-        ;
+        model.selectedPiece.selected = 'pieces';
         model.selectedPiece = null;
-        console.log('Unselected Piece')
+        console.log(selectedPiece)
         return show()
     }
-    model.selectedPiece = piece;;
-    console.log(model.selectedPiece)
+    model.selectedPiece = piece;
+    model.selectedPiece.selected = 'selected';
+
     show()
+    console.log(selectedPiece)
 }
 
 function sameSpace(id) {
@@ -20,50 +29,56 @@ function sameSpace(id) {
 }
 
 function movePiece(thisX, thisY) {
-    if (model.selectedPiece == null) return console.log('No piece chosen');
-    model.selectedPiece.cx = thisX + 5;
-    model.selectedPiece.cy = thisY + 5;
+    // Kan ikke velge spesikift array element i firebase, så må oppdatere hele arrayet
+    if (model.selectedPiece === null) return console.log('No piece chosen');
+    const index = model.selectedPiece.index;
+    modelPieces[index].cx = thisX + 5;
+    modelPieces[index].cy = thisY + 5;
+    db.collection('app').doc('model').set({
+        pieces: modelPieces,
+        selectedPiece: model.selectedPiece,
+    }, { merge: true })
     show()
 }
 
 function rollDice() {
-    return model.diceNumber = Math.ceil(Math.random() * 6);
+    return db.collection('app').doc('model').set({
+        diceNumber: Math.ceil(Math.random() * 6),
+    }, { merge: true })
 }
 
 function reset() {
-    model.selected = false;
-    model.selectedPiece = null;
-    model.diceNumber = null;
-    modelPieces = [
-        { name: 'yellow1', cx: "21.2", cy: "111.2" },
-        { name: 'yellow2', cx: '39.1', cy: '111.2' },
-        { name: 'yellow3', cx: '21.2', cy: '128.2' },
-        { name: 'yellow4', cx: '39.2', cy: '128.2' },
-        { name: 'red1', cx: '111.2', cy: '111.2' },
-        { name: 'red2', cx: '129.2', cy: '111.2' },
-        { name: 'red3', cx: '111.2', cy: '128.2' },
-        { name: 'red4', cx: '129.2', cy: '128.2' },
-        { name: 'blue1', cx: '111.2', cy: '21.2' },
-        { name: 'blue2', cx: '129.2', cy: '21.2' },
-        { name: 'blue3', cx: '111.2', cy: '38.2' },
-        { name: 'blue4', cx: '129.2', cy: '38.2' },
-        { name: 'green1', cx: '21.2', cy: '21.2' },
-        { name: 'green2', cx: '39.2', cy: '21.2' },
-        { name: 'green3', cx: '21.2', cy: '38.2' },
-        { name: 'green4', cx: '39.2', cy: '38.2' },
-    ];
+    db.collection('app').doc('model').set({
+        pieces: [
+            { name: 'yellow1', cx: "21.2", cy: "111.2", selected: true, index: 0 },
+            { name: 'yellow2', cx: '39.1', cy: '111.2', selected: false, index: 1 },
+            { name: 'yellow3', cx: '21.2', cy: '128.2', selected: false, index: 2 },
+            { name: 'yellow4', cx: '39.2', cy: '128.2', selected: false, index: 3 },
+            { name: 'red1', cx: '111.2', cy: '111.2', selected: false, index: 4 },
+            { name: 'red2', cx: '129.2', cy: '111.2', selected: false, index: 5 },
+            { name: 'red3', cx: '111.2', cy: '128.2', selected: false, index: 6 },
+            { name: 'red4', cx: '129.2', cy: '128.2', selected: false, index: 7 },
+            { name: 'blue1', cx: '111.2', cy: '21.2', selected: false, index: 8 },
+            { name: 'blue2', cx: '129.2', cy: '21.2', selected: false, index: 9 },
+            { name: 'blue3', cx: '111.2', cy: '38.2', selected: false, index: 10 },
+            { name: 'blue4', cx: '129.2', cy: '38.2', selected: false, index: 11 },
+            { name: 'green1', cx: '21.2', cy: '21.2', selected: false, index: 12 },
+            { name: 'green2', cx: '39.2', cy: '21.2', selected: false, index: 14 },
+            { name: 'green3', cx: '21.2', cy: '38.2', selected: false, index: 15 },
+            { name: 'green4', cx: '39.2', cy: '38.2', selected: false, index: 16 },
+        ],
+        selectedPiece: null,
+        diceNumber: null,
+    }, { merge: true })
     show()
     console.log('Game reset');
 }
 
 function save() {
-    if (model.selectedPiece != null) {;
-        model.selectedPiece = null;
-        show()
-    }
-    model.savedGame = JSON.parse(JSON.stringify(modelPieces));
-    model.savedDice = model.diceNumber;
-    console.log('Game saved');
+    db.collection('app').doc('model').set({
+        savedGame: JSON.parse(JSON.stringify(modelPieces)),
+        savedDice: model.diceNumber,
+    }, { merge: true })
 }
 
 function restore() {
@@ -74,6 +89,3 @@ function restore() {
     show()
     console.log('Game restored');
 }
-
-// document.getElementById(model.selectedPiece).cx.baseVal.value = thisx + 5;
-// document.getElementById(model.selectedPiece).cy.baseVal.value = thisy + 5;
