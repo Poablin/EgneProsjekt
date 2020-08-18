@@ -15,14 +15,12 @@ function selectPiece(piece) {
     if (model.selectedPiece != null && model.selectedPiece == piece) {
         model.selectedPiece.selected = 'pieces';
         model.selectedPiece = null;
-        console.log(selectedPiece)
         return show()
     }
     model.selectedPiece = piece;
     model.selectedPiece.selected = 'selected';
 
     show()
-    console.log(selectedPiece)
 }
 
 function sameSpace(id) {
