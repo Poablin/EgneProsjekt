@@ -1,16 +1,32 @@
+// function selectPiece(piece) {
+//     // Problemet nå er at model.selectedPiece ikke blir like piece, siden det er desimal forskjeller.
+//     if (model.selectedPiece != null && model.selectedPiece != piece) {
+//         model.selectedPiece.selected = false;
+//         show()
+//     }
+//     if (model.selectedPiece != null && model.selectedPiece == piece) {
+//         model.selectedPiece.selected = false;
+//         model.selectedPiece = null;
+//         console.log(model.selectedPiece)
+//         return show()
+//     }
+//     model.selectedPiece = piece;
+//     model.selectedPiece.selected = true;
+//     db.collection('app').doc('model').set(
+//         {
+//             selectedPiece: piece,
+//         }, { merge: true }
+//     ).then(show())
+
+//     console.log(model.selectedPiece)
+// }
+
 function selectPiece(piece) {
-    // Problemet nå er at model.selectedPiece ikke blir like piece, siden det er desimal forskjeller.
-    if (model.selectedPiece != null && model.selectedPiece == piece) {
-        model.selectedPiece = null;
-        return show()
-    }
     model.selectedPiece = piece;
+    model.selectedPiece.selected = true;
     db.collection('app').doc('model').set(
-        {
-            selectedPiece: piece,
-        }, { merge: true }
+        { selectedPiece: model.selectedPiece }, { merge: true }
     )
-    show()
 }
 
 function sameSpace(id) {
@@ -39,7 +55,7 @@ function rollDice() {
 function reset() {
     db.collection('app').doc('model').set({
         pieces: [
-            { name: 'yellow1', cx: "21.2", cy: "111.2", selected: true, index: 0 },
+            { name: 'yellow1', cx: "21.2", cy: "111.2", selected: false, index: 0 },
             { name: 'yellow2', cx: '39.1', cy: '111.2', selected: false, index: 1 },
             { name: 'yellow3', cx: '21.2', cy: '128.2', selected: false, index: 2 },
             { name: 'yellow4', cx: '39.2', cy: '128.2', selected: false, index: 3 },

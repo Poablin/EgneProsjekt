@@ -13,7 +13,6 @@ function updateAll() {
     )
 }
 
-
 function addDatabase() {
     // -> Lager ny collection om den ikke finnes <-
     return db.collection("app").doc('model').set({
