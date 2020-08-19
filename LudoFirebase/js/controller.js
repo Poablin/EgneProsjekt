@@ -1,26 +1,3 @@
-// function selectPiece(piece) {
-//     // Problemet nå er at model.selectedPiece ikke blir like piece, siden det er desimal forskjeller.
-//     if (model.selectedPiece != null && model.selectedPiece != piece) {
-//         model.selectedPiece.selected = false;
-//         show()
-//     }
-//     if (model.selectedPiece != null && model.selectedPiece == piece) {
-//         model.selectedPiece.selected = false;
-//         model.selectedPiece = null;
-//         console.log(model.selectedPiece)
-//         return show()
-//     }
-//     model.selectedPiece = piece;
-//     model.selectedPiece.selected = true;
-//     db.collection('app').doc('model').set(
-//         {
-//             selectedPiece: piece,
-//         }, { merge: true }
-//     ).then(show())
-
-//     console.log(model.selectedPiece)
-// }
-
 function selectPiece(piece) {
     model.selectedPiece = piece;
     model.selectedPiece.selected = true;
@@ -68,9 +45,9 @@ function reset() {
             { name: 'blue3', cx: '111.2', cy: '38.2', selected: false, index: 10 },
             { name: 'blue4', cx: '129.2', cy: '38.2', selected: false, index: 11 },
             { name: 'green1', cx: '21.2', cy: '21.2', selected: false, index: 12 },
-            { name: 'green2', cx: '39.2', cy: '21.2', selected: false, index: 14 },
-            { name: 'green3', cx: '21.2', cy: '38.2', selected: false, index: 15 },
-            { name: 'green4', cx: '39.2', cy: '38.2', selected: false, index: 16 },
+            { name: 'green2', cx: '39.2', cy: '21.2', selected: false, index: 13 },
+            { name: 'green3', cx: '21.2', cy: '38.2', selected: false, index: 14 },
+            { name: 'green4', cx: '39.2', cy: '38.2', selected: false, index: 15 },
         ],
         selectedPiece: null,
         diceNumber: null,

@@ -17,7 +17,7 @@ function addDatabase() {
     // -> Lager ny collection om den ikke finnes <-
     return db.collection("app").doc('model').set({
         pieces: [
-            { name: 'yellow1', cx: "21.2", cy: "111.2", selected: true, index: 0 },
+            { name: 'yellow1', cx: "21.2", cy: "111.2", selected: false, index: 0 },
             { name: 'yellow2', cx: '39.1', cy: '111.2', selected: false, index: 1 },
             { name: 'yellow3', cx: '21.2', cy: '128.2', selected: false, index: 2 },
             { name: 'yellow4', cx: '39.2', cy: '128.2', selected: false, index: 3 },
@@ -30,9 +30,9 @@ function addDatabase() {
             { name: 'blue3', cx: '111.2', cy: '38.2', selected: false, index: 10 },
             { name: 'blue4', cx: '129.2', cy: '38.2', selected: false, index: 11 },
             { name: 'green1', cx: '21.2', cy: '21.2', selected: false, index: 12 },
-            { name: 'green2', cx: '39.2', cy: '21.2', selected: false, index: 14 },
-            { name: 'green3', cx: '21.2', cy: '38.2', selected: false, index: 15 },
-            { name: 'green4', cx: '39.2', cy: '38.2', selected: false, index: 16 },
+            { name: 'green2', cx: '39.2', cy: '21.2', selected: false, index: 13 },
+            { name: 'green3', cx: '21.2', cy: '38.2', selected: false, index: 14 },
+            { name: 'green4', cx: '39.2', cy: '38.2', selected: false, index: 15 },
         ],
         diceNumber: null,
         selectedPiece: null,

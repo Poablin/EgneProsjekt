@@ -9,15 +9,10 @@
 </head>
 
 <body>
-    <div id="app"></div>
-    <div>
-        <input onclick="reset()" type="button" value="Reset">
-        <input onclick="save()" type="button" value="Save">
-        <input onclick="restore()" type="button" value="Restore">
-        <input onclick="rollDice(); show()" type="button" value='Roll Dice'>
-        <p style="font-size: 25px; color: blue; display: inline;" id="diceP"></p>
+    <div class="grid-container">
+        <div class="app" id="app"></div>
+        <div class="chatApp" id="chatApp"></div>
     </div>
-
     </script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>

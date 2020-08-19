@@ -2,8 +2,10 @@ function show() {
    let x = 'this.x.baseVal.value';
    let y = 'this.y.baseVal.value';
    let brettDiv = document.getElementById('app');
-   document.getElementById('diceP').innerHTML = model.diceNumber;
-   brettDiv.innerHTML = `<svg viewBox="0 0 315 151" width="100%" height="100%">
+   let chatDiv = document.getElementById('chatApp');
+   chatDiv.innerHTML = `  <div>Her skal det bli chat</div>`;
+   brettDiv.innerHTML = `
+   <svg  viewBox="0 0 165 151">
    <path onclick="movePiece(61, 70)" class="polygon green" d="M 60.2,60.2 75.2,75.2 60.2,90.2 Z" id="gW" />
    <path onclick="movePiece(70, 79)" class="polygon yellow" d="M 60.2,90.2 75.2,75.2 90.21,90.2 Z" id="yW" />
    <path onclick="movePiece(79, 70)" class="polygon red" d="M 90.21,60.2 75.2,75.2 90.2,90.2 Z" id="rW" />
@@ -120,7 +122,15 @@ function show() {
    <circle onclick="selectPiece(modelPieces[13], '${modelPieces[13].name}')" class="${checkSelected('green2')} green" id="${modelPieces[13].name}" cx="${modelPieces[13].cx}" cy="${modelPieces[13].cy}" r="3" />
    <circle onclick="selectPiece(modelPieces[14], '${modelPieces[14].name}')" class="${checkSelected('green3')} green" id="${modelPieces[14].name}" cx="${modelPieces[14].cx}" cy="${modelPieces[14].cy}" r="3" />
    <circle onclick="selectPiece(modelPieces[15], '${modelPieces[15].name}')" class="${checkSelected('green4')} green" id="${modelPieces[15].name}" cx="${modelPieces[15].cx}" cy="${modelPieces[15].cy}" r="3" />
-   </svg>`;
+   </svg>
+   <input onclick="reset()" type="button" value="Reset">
+   <input onclick="save()" type="button" value="Save">
+   <input onclick="restore()" type="button" value="Restore">
+   <input onclick="rollDice(); show()" type="button" value='Roll Dice'>
+   <p style="font-size: 25px; color: blue; display: inline;" id="diceP"></p>
+   `;
+
+   document.getElementById('diceP').innerHTML = model.diceNumber;
    console.log('Show function has run')
 }
 
