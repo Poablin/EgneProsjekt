@@ -52,7 +52,7 @@ body {
     display: grid;
     grid-template-areas:
         'app chatApp';
-    background-color: rgb(0, 0, 107);
+    background-color: wheat;
     width: 100vw;
     height: 100vh;
 
