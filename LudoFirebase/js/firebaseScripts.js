@@ -3,7 +3,7 @@ let model = null;
 let modelPieces = null;
 
 function updateAll() {
-    return db.collection('app').doc('model').onSnapshot(
+    return db.collection('ludoApp').doc('model').onSnapshot(
         function (collectionSnapshot) {
             console.log(collectionSnapshot.data().pieces);
             model = collectionSnapshot.data();
@@ -15,7 +15,7 @@ function updateAll() {
 
 function addDatabase() {
     // -> Lager ny collection om den ikke finnes <-
-    return db.collection("app").doc('model').set({
+    return db.collection("ludoApp").doc('model').set({
         pieces: [
             { name: 'yellow1', cx: "21.2", cy: "111.2", selected: false, index: 0 },
             { name: 'yellow2', cx: '39.1', cy: '111.2', selected: false, index: 1 },
@@ -63,7 +63,7 @@ function addDatabaseMerge() {
 }
 
 function getModelInfo() {
-    return db.collection("app").doc("model").get().then(function (doc) {
+    return db.collection("ludoApp").doc("model").get().then(function (doc) {
         if (doc.exists) {
             console.log("Document data:", doc.data());
         } else {

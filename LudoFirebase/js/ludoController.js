@@ -1,7 +1,7 @@
 function selectPiece(piece) {
     model.selectedPiece = piece;
     model.selectedPiece.selected = true;
-    db.collection('app').doc('model').set(
+    db.collection('ludoApp').doc('model').set(
         { selectedPiece: model.selectedPiece }, { merge: true }
     )
 }
@@ -16,7 +16,7 @@ function movePiece(thisX, thisY) {
     const index = model.selectedPiece.index;
     modelPieces[index].cx = thisX + 5;
     modelPieces[index].cy = thisY + 5;
-    db.collection('app').doc('model').set({
+    db.collection('ludoApp').doc('model').set({
         pieces: modelPieces,
         selectedPiece: model.selectedPiece,
     }, { merge: true })
@@ -24,13 +24,13 @@ function movePiece(thisX, thisY) {
 }
 
 function rollDice() {
-    return db.collection('app').doc('model').set({
+    return db.collection('ludoApp').doc('model').set({
         diceNumber: Math.ceil(Math.random() * 6),
     }, { merge: true })
 }
 
 function reset() {
-    db.collection('app').doc('model').set({
+    db.collection('ludoApp').doc('model').set({
         pieces: [
             { name: 'yellow1', cx: "21.2", cy: "111.2", selected: false, index: 0 },
             { name: 'yellow2', cx: '39.1', cy: '111.2', selected: false, index: 1 },
@@ -57,7 +57,7 @@ function reset() {
 }
 
 function save() {
-    db.collection('app').doc('model').set({
+    db.collection('ludoApp').doc('model').set({
         savedGame: modelPieces,
         savedDice: model.diceNumber,
     }, { merge: true })
@@ -65,13 +65,13 @@ function save() {
 
 function restore() {
     // -> Get det man skal ha først, så set etterpå <-
-    db.collection('app').doc('model').get().then(
+    db.collection('ludoApp').doc('model').get().then(
         function (snapshot) {
             model.savedGame = snapshot.data().savedGame;
             model.diceNumber = snapshot.data().savedDice;
         }
     )
-    db.collection('app').doc('model').set({
+    db.collection('ludoApp').doc('model').set({
         pieces: model.savedGame,
         diceNumber: model.savedDice,
     }, { merge: true }
