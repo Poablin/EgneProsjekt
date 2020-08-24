@@ -5,7 +5,7 @@ function show() {
    let chatDiv = document.getElementById('chatApp');
    chatDiv.innerHTML = `  <div>Her skal det bli chat</div>`;
    brettDiv.innerHTML = `
-   <svg  viewBox="0 0 165 151">
+   <svg  viewBox="0 0 167 151">
    <path onclick="movePiece(61, 70)" class="polygon green" d="M 60.2,60.2 75.2,75.2 60.2,90.2 Z" id="gW" />
    <path onclick="movePiece(70, 79)" class="polygon yellow" d="M 60.2,90.2 75.2,75.2 90.21,90.2 Z" id="yW" />
    <path onclick="movePiece(79, 70)" class="polygon red" d="M 90.21,60.2 75.2,75.2 90.2,90.2 Z" id="rW" />
