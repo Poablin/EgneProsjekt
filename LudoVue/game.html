@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="app" id="app"></div>
+        <div class="chatApp" id="chatApp"></div>
+    </div>
+    </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
+    <!-- https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-firestore.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        let firebaseConfig = {
+            apiKey: "AIzaSyBo_9YA4kqwXLu5XktffPjEpOoc26q7zYE",
+            authDomain: "teste-project-d52c9.firebaseapp.com",
+            databaseURL: "https://teste-project-d52c9.firebaseio.com",
+            projectId: "teste-project-d52c9",
+            storageBucket: "teste-project-d52c9.appspot.com",
+            messagingSenderId: "574239903404",
+            appId: "1:574239903404:web:258f8a1eb2c0cc88639909",
+            measurementId: "G-HMXQHTL53T"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <script src="js/firebaseScripts.js"></script>
+    <script src="js/ludoView.js"></script>
+    <script src="js/ludoController.js"></script>
+    <script>
+
+        updateAll()
+
+    </script>
+</body>
+
+</html>
