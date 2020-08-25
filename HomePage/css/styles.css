@@ -2,7 +2,7 @@ body {
     background-color: wheat;
     box-sizing: border-box;
     margin: 0%;
-    background: radial-gradient(ellipse at bottom, #5091DD 0%, #030617 100%)
+    background: radial-gradient(ellipse at bottom, #2a70c0 0%, #030617 100%);
 }
 
 .gridContent {
@@ -47,3 +47,6 @@ body {
 .footer {
     grid-area: footer;
 }
+
+
+
