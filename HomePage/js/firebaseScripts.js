@@ -1,8 +1,8 @@
-let db = firebase.firestore();
+let db = firebase.firestore()
 
-function addDatabase() {
+function addDatabase(collection, model) {
     // -> Lager ny collection om den ikke finnes <-
-    return db.collection("home").doc('model').set({
+    return db.collection(collection).doc(model).set({
         test: null
     }, { merge: true }
     ).then(function () {
@@ -13,8 +13,8 @@ function addDatabase() {
         });
 }
 
-function getModelInfo() {
-    return db.collection("home").doc("model").get().then(function (doc) {
+function getModelInfo(collection, model) {
+    return db.collection(collection).doc(model).get().then(function (doc) {
         if (doc.exists) {
             console.log("Document data:", doc.data());
         } else {
