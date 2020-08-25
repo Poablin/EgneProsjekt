@@ -4,7 +4,7 @@ const show = () => {
     contentDiv.innerHTML = `
     <div class="gridContent" id="gridContent">
         <div class="header">
-            <div class="logo">Hey</div>
+            <div class="logoDiv"><span>Eventuell logo her</span></div>
             <div class="listDiv">
                 <ul>
                 <li class="headerList"><a href="pages/Ludo/game.html">Ludo</a></li>
