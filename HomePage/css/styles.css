@@ -18,17 +18,33 @@ body {
 
 .header {
     grid-area: header;
+    text-align: left;
     background-color: rgba(15, 15, 15, 0.205);
+}
+
+.logo {
+    float: left;
+    color: red;
+    margin-top: 10px;
+    font-size: x-large;
+    font-family: serif;
+}
+
+.listDiv {
+    float: right;
+    margin-right: 40px;
+    margin-top: -10px;
+    text-align: right;
 }
 
 .headerList {
     list-style-type: none;
     font-family: serif;
     font-size: x-large;
-    float: right;
     color: rgb(230, 230, 230);
+    display: inline-block;
     margin-right: 40px;
-    margin-top: -10px;
+
 }
 
 .headerList a {
@@ -47,6 +63,3 @@ body {
 .footer {
     grid-area: footer;
 }
-
-
-
