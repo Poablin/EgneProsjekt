@@ -36,14 +36,13 @@ body {
     text-align: right;
 }
 
-.headerList {
+.headerList li {
     list-style-type: none;
     font-family: serif;
     font-size: x-large;
     color: rgb(230, 230, 230);
     display: inline-block;
     margin-right: 40px;
-
 }
 
 .headerList a {
