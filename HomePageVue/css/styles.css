@@ -45,13 +45,15 @@ body {
     margin-right: 40px;
 }
 
+
+.headerList li:hover {
+    color: blue;
+    cursor: pointer;
+}
+
 .headerList a {
     color: rgb(230, 230, 230);
     text-decoration-line: none;
-}
-
-.headerList a:hover {
-    color: blue;
 }
 
 .main {
