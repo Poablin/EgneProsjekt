@@ -1,6 +1,4 @@
 let db = firebase.firestore()
-let model = null;
-let modelPieces = null;
 
 function updateAll() {
     return db.collection('ludoApp').doc('model').onSnapshot(
