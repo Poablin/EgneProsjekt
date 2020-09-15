@@ -1,12 +1,35 @@
 Vue.component('product', {
-    methods: {},
     template: `<div>Hei2</div>`,
+    methods: {},
+    data: {},
 })
 
-let app = new Vue ({
+Vue.component('main-footer', {
+    template: `<div class="footer"></div>`,
+})
+
+Vue.component('main-header', {
+    template: `
+    <div class="header">
+        <a>Home</a>
+        <a>Cart</a>
+        <a>Account</a>
+        <a>About</a>
+        <a>Admin</a>
+    </div>`,
+})
+
+Vue.component('main-page', {
+    template: `
+    <div class="mainPage">
+    <img src="https://lp-cms-production.imgix.net/news/2019/05/Some-of-the-foodstuffs-on-offer-at-Depo.jpg"></img>
+    </div> `,
+    methos: {},
+})
+
+let app = new Vue({
     el: '#app',
     data: {},
     methods: {},
     computed: {},
-
 })

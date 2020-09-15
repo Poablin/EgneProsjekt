@@ -1,3 +1,40 @@
 body {
     background-color: wheat;
+    margin: 0px;
+}
+
+#app {
+    height: 100vh;
+}
+
+.header {
+    text-align: right;
+    line-height:25px;
+    width: 100%;
+    height: 30px;
+    background-color: darkgreen;
+}
+
+.header a {
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.mainPage {
+    height: 95%;
+}
+
+.mainPage img {
+    height: 50%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background-color: darkgreen;
 }
