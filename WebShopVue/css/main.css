@@ -37,6 +37,7 @@ body {
 .mainImage:hover {
     background-color: lightgrey;
     cursor: pointer;
+    opacity: 0.8;
 }
 
 .mainImage img {

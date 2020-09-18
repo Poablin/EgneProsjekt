@@ -13,6 +13,10 @@
         <main-header v-on:change-page="updateView"></main-header>
         <main-page v-on:change-page="updateView" v-if="selectedPage === 'home'"></main-page>
         <product v-on:add-to-cart="updateCart" v-on:remove-from-cart="removeFromCart" v-if="selectedPage === 'product'"></product>
+        <cart v-on:change-page="updateView" v-if="selectedPage === 'cart'"></cart>
+        <account v-on:change-page="updateView" v-if="selectedPage === 'account'"></account>
+        <about v-on:change-page="updateView" v-if="selectedPage === 'about'"></about>
+        <admin v-on:change-page="updateView" v-if="selectedPage === 'admin'"></admin>
         <main-footer></main-footer>
      </div>
     

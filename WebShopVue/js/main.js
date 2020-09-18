@@ -223,16 +223,52 @@ Vue.component('main-header', {
     template: `
     <div class="header">
         <a v-on:click="changePage('home')">Home</a>
-        <a>Cart</a>
-        <a>Account</a>
-        <a>About</a>
-        <a>Admin</a>
+        <a v-on:click="changePage('cart')">Cart</a>
+        <a v-on:click="changePage('account')">Account</a>
+        <a v-on:click="changePage('about')">About</a>
+        <a v-on:click="changePage('admin')">Admin</a>
     </div>`,
     methods: {
         changePage(page) {
             this.$emit('change-page', selectedPage = page)
         },
     }
+})
+
+Vue.component('admin', {
+    template: '<div>admin</div>',
+    methods: {
+        changePage(page) {
+            this.$emit('change-page', selectedPage = page)
+        },
+    },
+})
+
+Vue.component('about', {
+    template: '<div>about</div>',
+    methods: {
+        changePage(page) {
+            this.$emit('change-page', selectedPage = page)
+        },
+    },
+})
+
+Vue.component('account', {
+    template: '<div>account</div>',
+    methods: {
+        changePage(page) {
+            this.$emit('change-page', selectedPage = page)
+        },
+    },
+})
+
+Vue.component('cart', {
+    template: '<div>Cart</div>',
+    methods: {
+        changePage(page) {
+            this.$emit('change-page', selectedPage = page)
+        },
+    },
 })
 
 Vue.component('main-page', {
