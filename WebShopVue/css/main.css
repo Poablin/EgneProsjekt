@@ -30,15 +30,19 @@ body {
     height: 95%;
 }
 
-.mainPage img {
-    height: 50%;
-    width: 100%;
+.mainImage {
+    height: 60%;
+}
+
+.mainImage:hover {
+    background-color: lightgrey;
     cursor: pointer;
 }
 
-/* .product-image img{
-    width: 500px;
-} */
+.mainImage img {
+    height: 500px;
+    width: 100%;
+}
 
 .mainText {
     text-align: center;

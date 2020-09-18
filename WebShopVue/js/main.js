@@ -238,8 +238,10 @@ Vue.component('main-header', {
 Vue.component('main-page', {
     template: `
     <div class="mainPage">
-    <img v-on:click="changePage('product')" v-bind:src=mainImage></img>
-    <p class="mainText">Produkt 1</p>
+        <div class="mainImage" v-on:click="changePage('product')">
+            <img v-bind:src=mainImage></img>
+            <p class="mainText">Produkt 1</p>
+        </div>
     </div> `,
     methods: {
         changePage(page) {
