@@ -21,6 +21,11 @@ body {
     cursor: pointer;
 }
 
+.header a:active {
+    color: blue;
+    cursor: pointer;
+}
+
 .mainPage {
     height: 95%;
 }
