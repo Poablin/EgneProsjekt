@@ -21,14 +21,21 @@ Vue.component('main-header', {
 Vue.component('main-page', {
     template: `
     <div class="mainPage">
-    <img src="https://lp-cms-production.imgix.net/news/2019/05/Some-of-the-foodstuffs-on-offer-at-Depo.jpg"></img>
+    <img v-bind:src=mainImage></img>
     </div> `,
     methods: {},
+    data() {
+        return {
+            mainImage: 'https://lp-cms-production.imgix.net/news/2019/05/Some-of-the-foodstuffs-on-offer-at-Depo.jpg'
+        }
+    },
 })
 
 let app = new Vue({
     el: '#app',
-    data: {},
+    data: {
+        currentPage : 'Home'
+    },
     methods: {},
     computed: {},
 })
