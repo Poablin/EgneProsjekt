@@ -4,7 +4,7 @@ Vue.component('product', {
 })
 
 Vue.component('main-footer', {
-    template: `<div class="footer"></div>`,
+    template: `<div class="footer">LunchPower</div>`,
 })
 
 Vue.component('main-header', {

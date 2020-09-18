@@ -42,4 +42,6 @@ body {
     width: 100%;
     height: 20px;
     background-color: darkgreen;
+    text-align: center;
+    color: white;
 }
