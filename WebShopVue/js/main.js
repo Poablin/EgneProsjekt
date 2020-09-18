@@ -1,7 +1,6 @@
 Vue.component('product', {
     template: `<div>Hei2</div>`,
     methods: {},
-    data: {},
 })
 
 Vue.component('main-footer', {
@@ -24,7 +23,7 @@ Vue.component('main-page', {
     <div class="mainPage">
     <img src="https://lp-cms-production.imgix.net/news/2019/05/Some-of-the-foodstuffs-on-offer-at-Depo.jpg"></img>
     </div> `,
-    methos: {},
+    methods: {},
 })
 
 let app = new Vue({
