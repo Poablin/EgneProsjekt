@@ -237,38 +237,18 @@ Vue.component('main-header', {
 
 Vue.component('admin', {
     template: '<div>admin</div>',
-    methods: {
-        changePage(page) {
-            this.$emit('change-page', selectedPage = page)
-        },
-    },
 })
 
 Vue.component('about', {
     template: '<div>about</div>',
-    methods: {
-        changePage(page) {
-            this.$emit('change-page', selectedPage = page)
-        },
-    },
 })
 
 Vue.component('account', {
     template: '<div>account</div>',
-    methods: {
-        changePage(page) {
-            this.$emit('change-page', selectedPage = page)
-        },
-    },
 })
 
 Vue.component('cart', {
     template: '<div>Cart</div>',
-    methods: {
-        changePage(page) {
-            this.$emit('change-page', selectedPage = page)
-        },
-    },
 })
 
 Vue.component('main-page', {
