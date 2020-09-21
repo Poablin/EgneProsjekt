@@ -32,9 +32,10 @@ body {
 
 .mainImage {
     height: 60%;
+    text-align: center;
 }
 
-.mainImage:hover {
+.mainImage img:hover {
     background-color: lightgrey;
     cursor: pointer;
     opacity: 0.8;
@@ -45,8 +46,22 @@ body {
     width: 100%;
 }
 
-.mainText {
+.gridImages {
+    display: grid;
+    grid-template-columns: 0fr 1fr 1fr 1fr 1fr 0fr;
+    grid-gap: 50px;
     text-align: center;
+    margin-top: 15px;
+}
+
+.gridImages img:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.gridImages img {
+    width: 100%;
 }
 
 .footer {

@@ -256,7 +256,27 @@ Vue.component('main-page', {
     <div class="mainPage">
         <div class="mainImage" v-on:click="changePage('product')">
             <img v-bind:src=mainImage></img>
-            <p class="mainText">Produkt 1</p>
+            <p>Produkt 1</p>
+        </div>
+        <div class="gridImages">
+        <div id="spacerDiv1"></div>
+            <div v-on:click="changePage('product')">
+                <img v-bind:src=mainImage></img>
+                <p>Produkt 2</p>
+            </div>
+            <div v-on:click="changePage('product')">
+                <img v-bind:src=mainImage></img>
+                <p>Produkt 3</p>
+            </div>
+            <div v-on:click="changePage('product')">
+                <img v-bind:src=mainImage></img>
+                <p>Produkt 4</p>
+            </div>
+            <div v-on:click="changePage('product')">
+                <img v-bind:src=mainImage></img>
+                <p>Produkt 5</p>
+            </div>
+        <div id="spacerDiv2"></div>
         </div>
     </div> `,
     methods: {
