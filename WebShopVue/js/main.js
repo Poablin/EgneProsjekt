@@ -248,7 +248,13 @@ Vue.component('account', {
 })
 
 Vue.component('cart', {
-    template: '<div>Cart</div>',
+    template: `
+    <div>
+        <ul class="cartList">
+            <li>Cart Item 1</li>
+            <li>Cart Item 2</li>
+        </ul>
+    </div>`,
 })
 
 Vue.component('main-page', {
