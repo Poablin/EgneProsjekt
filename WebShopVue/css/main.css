@@ -22,7 +22,6 @@ body {
 }
 
 
-
 .mainPage {
     height: 95%;
 }
@@ -45,7 +44,7 @@ body {
 
 .gridImages {
     display: grid;
-    grid-template-columns: 0fr 1fr 1fr 1fr 1fr 0fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
     grid-gap: 50px;
     text-align: center;
     margin-top: 15px;
