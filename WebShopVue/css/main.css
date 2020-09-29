@@ -48,6 +48,7 @@ body {
     grid-gap: 50px;
     text-align: center;
     margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 .gridImages img:hover {
