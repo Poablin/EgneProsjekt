@@ -6,7 +6,7 @@ function updateAll() {
             console.log(collectionSnapshot.data().pieces);
             model = collectionSnapshot.data();
             modelPieces = collectionSnapshot.data().pieces;
-            show()
+            showLudo();
         }
     )
 }

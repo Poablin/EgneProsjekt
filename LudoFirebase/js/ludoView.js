@@ -1,9 +1,7 @@
-function show() {
+function showLudo() {
    let x = 'this.x.baseVal.value';
    let y = 'this.y.baseVal.value';
    let brettDiv = document.getElementById('app');
-   let chatDiv = document.getElementById('chatApp');
-   chatDiv.innerHTML = `  <div>Her skal det bli chat</div>`;
    brettDiv.innerHTML = `
    <svg  viewBox="0 0 167 151">
    <path onclick="movePiece(61, 70)" class="polygon green" d="M 60.2,60.2 75.2,75.2 60.2,90.2 Z" id="gW" />

@@ -20,7 +20,7 @@ function movePiece(thisX, thisY) {
         pieces: modelPieces,
         selectedPiece: model.selectedPiece,
     }, { merge: true })
-    show()
+    showLudo()
 }
 
 function rollDice() {
