@@ -63,7 +63,7 @@ namespace RogueLikeTest
 
         public void Die()
         {
-            _symbol = "";
+            //Finne en måte å nulle ut enemy objectet på
         }
     }
 }
