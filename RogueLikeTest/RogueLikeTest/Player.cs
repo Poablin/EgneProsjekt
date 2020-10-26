@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RogueLikeTest
 {
@@ -15,6 +13,7 @@ namespace RogueLikeTest
             if (playerx == enemy.GetLocation()[0] && playery == enemy.GetLocation()[1])
             {
                 enemy.Die();
+                Console.WriteLine(" BONK!");
             }
         }
     }
