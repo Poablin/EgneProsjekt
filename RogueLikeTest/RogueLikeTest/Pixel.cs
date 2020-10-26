@@ -17,6 +17,14 @@ namespace RogueLikeTest
             _symbol = symbol;
         }
 
+        public int[] GetLocation()
+        {
+            int[] Location = new int[2];
+            Location[0] = _x;
+            Location[1] = _y;
+            return Location;
+        }
+
         public void Show()
         {
             Console.CursorLeft = _x;
@@ -51,6 +59,11 @@ namespace RogueLikeTest
                 _y++;
                 Show();
             }
+        }
+
+        public void Die()
+        {
+            _symbol = "";
         }
     }
 }

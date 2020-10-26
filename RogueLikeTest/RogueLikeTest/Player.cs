@@ -6,17 +6,16 @@ namespace RogueLikeTest
 {
     class Player : Pixel
     {
-        public int X { get; private set; }
-        public int Y { get; private set; }
         public Player(int x, int y, ConsoleColor color, string symbol) : base(x, y, color, symbol)
         {
-            X = x;
-            Y = y;
         }
 
-        public void Attack(Enemy enemy)
+        public void Attack(Enemy enemy, int playerx, int playery)
         {
-            enemy = null;
+            if (playerx == enemy.GetLocation()[0] && playery == enemy.GetLocation()[1])
+            {
+                enemy.Die();
+            }
         }
     }
 }
