@@ -4,15 +4,15 @@ namespace RogueLikeTest
 {
     class Player : Pixel
     {
-        public Player(int x, int y, ConsoleColor color, string symbol) : base(x, y, color, symbol)
+        public Player(int x, int y) : base(x, y, ConsoleColor.Blue, "P")
         {
         }
 
-        public void Attack(Enemy enemy, int playerx, int playery)
+        public void Attack(ref Enemy enemy, int playerx, int playery)
         {
             if (playerx == enemy.GetLocation()[0] && playery == enemy.GetLocation()[1])
             {
-                enemy.Die();
+                enemy = null;
                 Console.WriteLine(" BONK!");
             }
         }

@@ -4,7 +4,7 @@ namespace RogueLikeTest
 {
     class Enemy : Pixel
     {
-        public Enemy(int x, int y, ConsoleColor color, string symbol) : base(x, y, color, symbol)
+        public Enemy(int x, int y) : base(x, y, ConsoleColor.Red, "E")
         {
         }
     }

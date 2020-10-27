@@ -35,35 +35,29 @@ namespace RogueLikeTest
 
         public void Move(ConsoleKey key)
         {
-            if (key == ConsoleKey.RightArrow)
+            switch (key)
             {
-                Console.Clear();
-                _x++;
-                Show();
+                case ConsoleKey.RightArrow:
+                    Console.Clear();
+                    _x++;
+                    Show();
+                    break;
+                case ConsoleKey.LeftArrow:
+                    Console.Clear();
+                    _x--;
+                    Show();
+                    break;
+                case ConsoleKey.UpArrow:
+                    Console.Clear();
+                    _y--;
+                    Show();
+                    break;
+                case ConsoleKey.DownArrow:
+                    Console.Clear();
+                    _y++;
+                    Show();
+                    break;
             }
-            else if (key == ConsoleKey.LeftArrow)
-            {
-                Console.Clear();
-                _x--;
-                Show();
-            }
-            else if (key == ConsoleKey.UpArrow)
-            {
-                Console.Clear();
-                _y--;
-                Show();
-            }
-            else if (key == ConsoleKey.DownArrow)
-            {
-                Console.Clear();
-                _y++;
-                Show();
-            }
-        }
-
-        public void Die()
-        {
-            //Finne en måte å nulle ut enemy objectet på
         }
     }
 }

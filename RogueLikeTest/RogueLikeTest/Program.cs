@@ -1,34 +1,38 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RogueLikeTest
 {
     class Program
     {
-        static void Main(string[] args) 
+        static void Main(string[] args)
         {
 
-            var player = new Player(1,1, ConsoleColor.Blue, "P");
-            var enemy1 = new Enemy(5, 6, ConsoleColor.Red, "E");
-            var enemy2 = new Enemy(13, 2, ConsoleColor.Red, "E");
-            var enemy3 = new Enemy(15, 3, ConsoleColor.Red, "E");
-            var enemy4 = new Enemy(10, 4, ConsoleColor.Red, "E");
-            
+            var world = new World();
+
             while (true)
             {
-                player.Show();
-                enemy1.Show();
-                enemy2.Show();
-                enemy3.Show();
-                enemy4.Show();
                 Console.CursorVisible = false;
-                //Console.WriteLine(player.GetLocation()[0]);
-                //Console.WriteLine(player.GetLocation()[1]);
+                world._player.Show();
+                foreach (var enemy in world._enemies)
+                {
+                    enemy?.Show();
+                }
                 var key = Console.ReadKey();
-                player.Move(key.Key);
-                player.Attack(enemy1, player.GetLocation()[0], player.GetLocation()[1]);
-                player.Attack(enemy2, player.GetLocation()[0], player.GetLocation()[1]);
-                player.Attack(enemy3, player.GetLocation()[0], player.GetLocation()[1]);
-                player.Attack(enemy4, player.GetLocation()[0], player.GetLocation()[1]);
+                world._player.Move(key.Key);
+                for (var index = 0; index < world._enemies.Count; index++)
+                {
+                    if (world._enemies[index] != null)
+                    {
+                        if (world._player.GetLocation()[0] == world._enemies[index].GetLocation()[0] &&
+                            world._player.GetLocation()[1] == world._enemies[index].GetLocation()[1])
+                        {
+                            world._enemies[index] = null;
+                            Console.WriteLine(" BONK!");
+                        }
+                    }
+
+                }
             }
 
             //     █ █ █
