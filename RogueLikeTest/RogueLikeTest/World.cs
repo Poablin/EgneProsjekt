@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 
 namespace RogueLikeTest
 {
     class World
     {
-        public Player _player { get; private set; }
-        public List<Enemy> _enemies { get; private set; }
-        
-
         public World()
         {
             _player = new Player(1, 1);
@@ -19,11 +14,36 @@ namespace RogueLikeTest
                 var enemy = new Enemy(new Random().Next(2, 20), new Random().Next(2, 20));
                 _enemies.Add(enemy);
             }
-
-            //_enemies.Add(new Enemy(5, 6, ConsoleColor.Red, "E"));
-            //_enemies.Add(new Enemy(5, 6, ConsoleColor.Red, "E"));
-            //_enemies.Add(new Enemy(5, 6, ConsoleColor.Red, "E"));
-            //_enemies.Add(new Enemy(5, 6, ConsoleColor.Red, "E"));
         }
+        public void Show()
+        {
+            while (true)
+            {
+                Console.CursorVisible = false;
+                _player.Show();
+                foreach (var enemy in _enemies)
+                {
+                    enemy?.Show();
+                }
+
+                var key = Console.ReadKey();
+                _player.Move(key.Key);
+                for (var index = 0; index < _enemies.Count; index++)
+                {
+                    if (_enemies[index] != null)
+                    {
+                        if (_player.GetLocation()[0] == _enemies[index].GetLocation()[0] &&
+                            _player.GetLocation()[1] == _enemies[index].GetLocation()[1])
+                        {
+                            _enemies[index] = null;
+                            Console.WriteLine(" BONK!");
+                        }
+                    }
+
+                }
+            }
+        }
+        public Player _player { get; private set; }
+        public List<Enemy> _enemies { get; private set; }
     }
 }
