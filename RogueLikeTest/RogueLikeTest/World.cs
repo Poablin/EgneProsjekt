@@ -7,12 +7,12 @@ namespace RogueLikeTest
     {
         public World()
         {
-            _player = new Player(1, 1);
-            _enemies = new List<Enemy>();
+            Player = new Player(1, 1);
+            Enemies = new List<Enemy>();
             for (int i = 0; i < 5; i++)
             {
                 var enemy = new Enemy(new Random().Next(2, 20), new Random().Next(2, 20));
-                _enemies.Add(enemy);
+                Enemies.Add(enemy);
             }
         }
         public void Show()
@@ -20,22 +20,23 @@ namespace RogueLikeTest
             while (true)
             {
                 Console.CursorVisible = false;
-                _player.Show();
-                foreach (var enemy in _enemies)
+                Player.Show();
+                foreach (var enemy in Enemies)
                 {
                     enemy?.Show();
                 }
 
                 var key = Console.ReadKey();
-                _player.Move(key.Key);
-                for (var index = 0; index < _enemies.Count; index++)
+                Player.Move(key.Key);
+                for (var index = 0; index < Enemies.Count; index++)
                 {
-                    if (_enemies[index] != null)
+                    if (Enemies[index] != null)
                     {
-                        if (_player.GetLocation()[0] == _enemies[index].GetLocation()[0] &&
-                            _player.GetLocation()[1] == _enemies[index].GetLocation()[1])
+                        if (Player.GetLocation()[0] == Enemies[index].GetLocation()[0] &&
+                            Player.GetLocation()[1] == Enemies[index].GetLocation()[1])
                         {
-                            _enemies[index] = null;
+                            Enemies[index] = null;
+                            Console.SetCursorPosition(1, 25);
                             Console.WriteLine(" BONK!");
                         }
                     }
@@ -43,7 +44,12 @@ namespace RogueLikeTest
                 }
             }
         }
-        public Player _player { get; private set; }
-        public List<Enemy> _enemies { get; private set; }
+
+        public void ShowBorder()
+        {
+
+        }
+        public Player Player { get; private set; }
+        public List<Enemy> Enemies { get; private set; }
     }
 }

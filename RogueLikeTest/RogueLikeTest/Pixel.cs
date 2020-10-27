@@ -4,33 +4,33 @@ namespace RogueLikeTest
 {
     internal class Pixel
     {
-        private int _x { get; set; }
-        private int _y { get; set; }
-        private ConsoleColor _color { get; set; }
-        private string _symbol { get; set; }
+        private int X { get; set; }
+        private int Y { get; set; }
+        private ConsoleColor Color { get; set; }
+        private string Symbol { get; set; }
 
         public Pixel(int x, int y, ConsoleColor color, string symbol)
         {
-            _x = x;
-            _y = y;
-            _color = color;
-            _symbol = symbol;
+            X = x;
+            Y = y;
+            Color = color;
+            Symbol = symbol;
         }
 
         public int[] GetLocation()
         {
-            int[] Location = new int[2];
-            Location[0] = _x;
-            Location[1] = _y;
-            return Location;
+            int[] location = new int[2];
+            location[0] = X;
+            location[1] = Y;
+            return location;
         }
 
         public void Show()
         {
-            Console.CursorLeft = _x;
-            Console.CursorTop = _y;
-            Console.ForegroundColor = _color;
-            Console.Write(_symbol);
+            Console.CursorLeft = X;
+            Console.CursorTop = Y;
+            Console.ForegroundColor = Color;
+            Console.Write(Symbol);
         }
 
         public void Move(ConsoleKey key)
@@ -38,23 +38,19 @@ namespace RogueLikeTest
             switch (key)
             {
                 case ConsoleKey.RightArrow:
-                    Console.Clear();
-                    _x++;
+                    X++;
                     Show();
                     break;
                 case ConsoleKey.LeftArrow:
-                    Console.Clear();
-                    _x--;
+                    X--;
                     Show();
                     break;
                 case ConsoleKey.UpArrow:
-                    Console.Clear();
-                    _y--;
+                    Y--;
                     Show();
                     break;
                 case ConsoleKey.DownArrow:
-                    Console.Clear();
-                    _y++;
+                    Y++;
                     Show();
                     break;
             }

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace RogueLikeTest
 {
@@ -10,7 +10,19 @@ namespace RogueLikeTest
 
             var world = new World();
 
-            world.Show();
+            Console.WriteLine("****************  Super Roguelike *********************`\n\n");
+            Console.WriteLine("                Press enter to start!                       ");
+            
+            while(true)
+            {
+                Console.CursorVisible = false;
+                var key = Console.ReadKey();
+                if (key.Key == ConsoleKey.Enter)
+                {
+                    Console.Clear();
+                    world.Show();
+                }
+            }
 
             //     █ █ █
         }
