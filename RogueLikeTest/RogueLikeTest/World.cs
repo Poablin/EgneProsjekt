@@ -38,11 +38,11 @@ namespace RogueLikeTest
                 {
                     if (Enemies[index] != null)
                     {
-                        if (Player.GetLocation()[0] == Enemies[index].GetLocation()[0] &&
-                            Player.GetLocation()[1] == Enemies[index].GetLocation()[1])
+                        if (Player.GetLocation()[0] == Enemies[index].GetLocation()[0] 
+                            && Player.GetLocation()[1] == Enemies[index].GetLocation()[1])
                         {
                             Enemies[index] = null;
-                            Console.SetCursorPosition(1, 25);
+                            Console.SetCursorPosition(75, 20);
                             Console.WriteLine(" BONK!");
                         }
                     }

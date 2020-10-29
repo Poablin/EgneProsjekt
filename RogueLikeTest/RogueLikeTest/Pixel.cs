@@ -37,7 +37,7 @@ namespace RogueLikeTest
         {
             if (key == ConsoleKey.RightArrow)
             {
-                if(X < 100) 
+                if(X < 70) 
                 {
                     Console.SetCursorPosition(X, Y);
                     Console.Write(new string(' ', 1));
@@ -67,7 +67,7 @@ namespace RogueLikeTest
             }
             else if (key == ConsoleKey.DownArrow)
             {
-                if (Y < 23) 
+                if (Y < 28) 
                 {
                     Console.SetCursorPosition(X, Y);
                     Console.Write(new string(' ', 1));
