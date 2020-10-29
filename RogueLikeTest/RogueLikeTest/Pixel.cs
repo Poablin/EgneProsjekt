@@ -38,18 +38,26 @@ namespace RogueLikeTest
             switch (key)
             {
                 case ConsoleKey.RightArrow:
+                    Console.SetCursorPosition(X, Y);
+                    Console.Write(new string(' ', Console.WindowWidth));
                     X++;
                     Show();
                     break;
                 case ConsoleKey.LeftArrow:
+                    Console.SetCursorPosition(X, Y);
+                    Console.Write(new string(' ', Console.WindowWidth));
                     X--;
                     Show();
                     break;
                 case ConsoleKey.UpArrow:
+                    Console.SetCursorPosition(X, Y);
+                    Console.Write(new string(' ', Console.WindowWidth));
                     Y--;
                     Show();
                     break;
                 case ConsoleKey.DownArrow:
+                    Console.SetCursorPosition(X, Y);
+                    Console.Write(new string(' ', Console.WindowWidth));
                     Y++;
                     Show();
                     break;
