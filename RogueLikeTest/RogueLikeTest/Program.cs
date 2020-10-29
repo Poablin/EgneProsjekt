@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace RogueLikeTest
@@ -7,16 +8,19 @@ namespace RogueLikeTest
     {
         static void Main(string[] args)
         {
-
             var world = new World();
 
-            Console.WriteLine("****************  Super Roguelike *********************`\n\n");
-            Console.WriteLine("                Press enter to start!                       ");
-            
+            Console.WriteLine("******************************  Super Roguelike ******************************\n\n");
+            Console.WriteLine("                             Press enter to start!                                ");
             Console.CursorVisible = false;
-            var key = Console.ReadKey();
-            if (key.Key == ConsoleKey.Enter)
+
+            bool gameStarted = false;
+
+            while (gameStarted == false)
             {
+                var key = Console.ReadKey();
+                if (key.Key != ConsoleKey.Enter) continue;
+                gameStarted = true;
                 Console.Clear();
                 world.Show();
             }

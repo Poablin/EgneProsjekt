@@ -6,10 +6,10 @@ namespace RogueLikeTest
 {
     class Sprite
     {
-        private Pixel[] _pixels;
+        private List<Pixel> _pixels;
         private int dx = 0;
         private int dy = 0;
-        public Sprite(Pixel[] Pixels)
+        public Sprite(List<Pixel> Pixels)
         {
             _pixels = Pixels;
         }

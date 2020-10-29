@@ -15,11 +15,17 @@ namespace RogueLikeTest
                 Enemies.Add(enemy);
             }
         }
+        
+        public Player Player { get; }
+        public List<Enemy> Enemies { get; }
+        public Border border = new Border();
+
         public void Show()
         {
             while (true)
             {
                 Console.CursorVisible = false;
+                border.Show();
                 Player.Show();
                 foreach (var enemy in Enemies)
                 {
@@ -45,11 +51,9 @@ namespace RogueLikeTest
             }
         }
 
-        public void ShowBorder()
+        public void BuildWorld()
         {
-
+            
         }
-        public Player Player { get; private set; }
-        public List<Enemy> Enemies { get; private set; }
     }
 }

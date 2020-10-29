@@ -2,12 +2,12 @@
 
 namespace RogueLikeTest
 {
-    internal class Pixel
+    internal class Pixel 
     {
         private int X { get; set; }
         private int Y { get; set; }
-        private ConsoleColor Color { get; set; }
-        private string Symbol { get; set; }
+        private ConsoleColor Color { get; }
+        private string Symbol { get; }
 
         public Pixel(int x, int y, ConsoleColor color, string symbol)
         {
@@ -37,24 +37,28 @@ namespace RogueLikeTest
         {
             if (key == ConsoleKey.RightArrow)
             {
-                if (X > 0)
+                if(X < 100) 
                 {
                     Console.SetCursorPosition(X, Y);
                     Console.Write(new string(' ', 1));
                     X++;
                     Show();
                 }
+
             }
             else if (key == ConsoleKey.LeftArrow)
             {
-                Console.SetCursorPosition(X, Y);
-                Console.Write(new string(' ', 1));
-                X--;
-                Show();
+                if (X > 1)
+                {
+                    Console.SetCursorPosition(X, Y);
+                    Console.Write(new string(' ', 1));
+                    X--;
+                    Show();
+                }
             }
             else if (key == ConsoleKey.UpArrow)
             {
-                if(Y > 0) {
+                if(Y > 1) {
                     Console.SetCursorPosition(X, Y);
                     Console.Write(new string(' ', 1));
                     Y--;
@@ -63,7 +67,7 @@ namespace RogueLikeTest
             }
             else if (key == ConsoleKey.DownArrow)
             {
-                if (Y < 29) 
+                if (Y < 23) 
                 {
                     Console.SetCursorPosition(X, Y);
                     Console.Write(new string(' ', 1));
