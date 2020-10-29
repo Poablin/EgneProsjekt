@@ -13,15 +13,12 @@ namespace RogueLikeTest
             Console.WriteLine("****************  Super Roguelike *********************`\n\n");
             Console.WriteLine("                Press enter to start!                       ");
             
-            while(true)
+            Console.CursorVisible = false;
+            var key = Console.ReadKey();
+            if (key.Key == ConsoleKey.Enter)
             {
-                Console.CursorVisible = false;
-                var key = Console.ReadKey();
-                if (key.Key == ConsoleKey.Enter)
-                {
-                    Console.Clear();
-                    world.Show();
-                }
+                Console.Clear();
+                world.Show();
             }
 
             //     █ █ █
