@@ -35,32 +35,41 @@ namespace RogueLikeTest
 
         public void Move(ConsoleKey key)
         {
-            switch (key)
+            if (key == ConsoleKey.RightArrow)
             {
-                case ConsoleKey.RightArrow:
+                if (X > 0)
+                {
                     Console.SetCursorPosition(X, Y);
-                    Console.Write(new string(' ', Console.WindowWidth));
+                    Console.Write(new string(' ', 1));
                     X++;
                     Show();
-                    break;
-                case ConsoleKey.LeftArrow:
+                }
+            }
+            else if (key == ConsoleKey.LeftArrow)
+            {
+                Console.SetCursorPosition(X, Y);
+                Console.Write(new string(' ', 1));
+                X--;
+                Show();
+            }
+            else if (key == ConsoleKey.UpArrow)
+            {
+                if(Y > 0) {
                     Console.SetCursorPosition(X, Y);
-                    Console.Write(new string(' ', Console.WindowWidth));
-                    X--;
-                    Show();
-                    break;
-                case ConsoleKey.UpArrow:
-                    Console.SetCursorPosition(X, Y);
-                    Console.Write(new string(' ', Console.WindowWidth));
+                    Console.Write(new string(' ', 1));
                     Y--;
                     Show();
-                    break;
-                case ConsoleKey.DownArrow:
+                }
+            }
+            else if (key == ConsoleKey.DownArrow)
+            {
+                if (Y < 29) 
+                {
                     Console.SetCursorPosition(X, Y);
-                    Console.Write(new string(' ', Console.WindowWidth));
+                    Console.Write(new string(' ', 1));
                     Y++;
                     Show();
-                    break;
+                }
             }
         }
     }
