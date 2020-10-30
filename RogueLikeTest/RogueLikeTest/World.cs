@@ -9,9 +9,9 @@ namespace RogueLikeTest
         {
             Player = new Player(1, 1);
             Enemies = new List<Enemy>();
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < new Random().Next(5, 10); i++)
             {
-                var enemy = new Enemy(new Random().Next(2, 20), new Random().Next(2, 20));
+                var enemy = new Enemy(new Random().Next(2, 80), new Random().Next(2, 29));
                 Enemies.Add(enemy);
             }
         }
@@ -22,10 +22,10 @@ namespace RogueLikeTest
 
         public void Show()
         {
+            Border.Show();
             while (true)
             {
                 Console.CursorVisible = false;
-                Border.Show();
                 Player.Show();
                 foreach (var enemy in Enemies)
                 {
@@ -46,14 +46,8 @@ namespace RogueLikeTest
                             Console.Write("BONK!");
                         }
                     }
-
                 }
             }
-        }
-
-        public void BuildWorld()
-        {
-            
         }
     }
 }
