@@ -18,14 +18,14 @@ namespace RogueLikeTest
         
         public Player Player { get; }
         public List<Enemy> Enemies { get; }
-        public Border border = new Border();
+        public Border Border = new Border();
 
         public void Show()
         {
             while (true)
             {
                 Console.CursorVisible = false;
-                border.Show();
+                Border.Show();
                 Player.Show();
                 foreach (var enemy in Enemies)
                 {
@@ -42,8 +42,8 @@ namespace RogueLikeTest
                             && Player.GetLocation()[1] == Enemies[index].GetLocation()[1])
                         {
                             Enemies[index] = null;
-                            Console.SetCursorPosition(75, 20);
-                            Console.WriteLine(" BONK!");
+                            Console.SetCursorPosition(85, 2);
+                            Console.Write("BONK!");
                         }
                     }
 

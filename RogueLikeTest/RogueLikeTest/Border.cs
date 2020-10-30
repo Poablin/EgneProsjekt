@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RogueLikeTest
 {
     class Border
     {
-        private Pixel[] borderX1 = new Pixel[72];
-        private Pixel[] borderX2 = new Pixel[72];
+        private Pixel[] borderX1 = new Pixel[82];
+        private Pixel[] borderX2 = new Pixel[82];
         private Pixel[] borderY1 = new Pixel[30];
         private Pixel[] borderY2 = new Pixel[30];
         public Border()
         {
-            for (int i = 0; i < 72; i++)
+            for (int i = 0; i < 82; i++)
             {
                 var pixel1 = new Pixel(i, 0,ConsoleColor.DarkGray,"█");
                 var pixel2 = new Pixel(i, 29, ConsoleColor.DarkGray, "█");
@@ -23,7 +21,7 @@ namespace RogueLikeTest
             for (int i = 0; i < 30; i++)
             {
                 var pixel1 = new Pixel(0, i, ConsoleColor.DarkGray, "█");
-                var pixel2 = new Pixel(72, i, ConsoleColor.DarkGray, "█");
+                var pixel2 = new Pixel(82, i, ConsoleColor.DarkGray, "█");
                 borderY1[i] = pixel1;
                 borderY2[i] = pixel2;
             }
@@ -31,7 +29,7 @@ namespace RogueLikeTest
         }
         public void Show()
         {
-            for (var index = 0; index < 72; index++)
+            for (var index = 0; index < 82; index++)
             {
                 var pixel1 = borderX1[index];
                 var pixel2 = borderX2[index];
