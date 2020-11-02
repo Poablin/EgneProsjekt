@@ -10,9 +10,9 @@
         <ListBox x:Name="StoryList" Margin="260,470,260,0" Background="#FFD1D1D1"/>
         <Image x:Name="MainImage" Margin="260,10,260,238" Source="/Images/wp1933949.png" Stretch="Fill" StretchDirection="Both"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="1150,543,0,0" VerticalAlignment="Top" Height="68" Width="120"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="1150,470,0,0" VerticalAlignment="Top" Height="68" Width="120"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="1150,470,0,0" VerticalAlignment="Top" Height="68" Width="120" Click="GoScreenBack"/>
         <ListBox x:Name="InventoryList" Margin="10,470,1035,0" Background="#FFD1D1D1"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="1025,543,0,0" VerticalAlignment="Top" Height="68" Width="120"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="1025,470,0,0" VerticalAlignment="Top" Height="68" Width="120"/>
+        <Button Content="Forward" HorizontalAlignment="Left" Margin="1025,470,0,0" VerticalAlignment="Top" Height="68" Width="120" Click="GoForwardScreen"/>
     </Grid>
 </Window>

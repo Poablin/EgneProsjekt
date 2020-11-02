@@ -21,6 +21,8 @@ namespace TextAdventureWPF.Model
                new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[1])
            };
            Screens[0].Entrances[0] = Screens[1];
+           Screens[1].Entrances[0] = Screens[0];
+           Screens[1].Entrances[1] = Screens[2];
         }
     }
 }

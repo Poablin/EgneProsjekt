@@ -33,5 +33,17 @@ namespace TextAdventureWPF
             }
 
         }
+
+        private void GoForwardScreen(object sender, RoutedEventArgs e)
+        {
+            GameModel.CurrentScreen++;
+            ShowGameInfo();
+        }
+
+        private void GoScreenBack(object sender, RoutedEventArgs e)
+        {
+            GameModel.CurrentScreen--;
+            ShowGameInfo();
+        }
     }
 }
