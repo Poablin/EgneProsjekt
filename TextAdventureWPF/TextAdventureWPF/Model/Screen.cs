@@ -45,7 +45,6 @@ namespace TextAdventureWPF.Model
             int count = 0;
             foreach (var screen in GetAvailableTravel())
             {
-                
                 if (screen != null)
                 {
                     if (count == 0)
@@ -53,7 +52,6 @@ namespace TextAdventureWPF.Model
                         count++;
                         list.Add("Available entrances:");
                     }
-                    
                     list.Add(screen.PlaceName);
                 }
             }
