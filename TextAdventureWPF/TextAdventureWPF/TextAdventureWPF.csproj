@@ -7,13 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\CaveEntrance.png" />
+    <None Remove="Images\CaveInterior.png" />
+    <None Remove="Images\D_24fYqWsAAtkHL.png" />
+    <None Remove="Images\Storage.png" />
     <None Remove="Images\wp1933949.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\wp1933949.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Images\CaveEntrance.png" />
+    <Resource Include="Images\CaveInterior.png" />
+    <Resource Include="Images\Storage.png" />
   </ItemGroup>
 
 </Project>

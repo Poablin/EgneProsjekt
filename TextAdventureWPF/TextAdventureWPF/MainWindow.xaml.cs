@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace TextAdventureWPF
 {
@@ -17,6 +19,8 @@ namespace TextAdventureWPF
 
         public void ShowGameInfo()
         {
+
+            MainImage.Source = new BitmapImage(new Uri(GameModel.Screens[GameModel.CurrentScreen].ImagePath, UriKind.Relative));
             StoryList.Items.Clear();
             InventoryList.Items.Clear();
 
@@ -36,13 +40,35 @@ namespace TextAdventureWPF
 
         private void GoForwardScreen(object sender, RoutedEventArgs e)
         {
-            GameModel.CurrentScreen++;
+            if (GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[0]) != -1)
+            {
+                GameModel.CurrentScreen = GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[0]);
+            }
             ShowGameInfo();
         }
 
         private void GoScreenBack(object sender, RoutedEventArgs e)
         {
-            GameModel.CurrentScreen--;
+            if (GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[1]) != -1)
+            {
+                GameModel.CurrentScreen = GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[1]);
+            }
+            ShowGameInfo();
+        }        
+        private void GoScreenLeft(object sender, RoutedEventArgs e)
+        {
+            if (GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[2]) != -1)
+            {
+                GameModel.CurrentScreen = GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[2]);
+            }
+            ShowGameInfo();
+        }       
+        private void GoScreenRight(object sender, RoutedEventArgs e)
+        {
+            if (GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[3]) != -1)
+            {
+                GameModel.CurrentScreen = GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[3]);
+            }
             ShowGameInfo();
         }
     }

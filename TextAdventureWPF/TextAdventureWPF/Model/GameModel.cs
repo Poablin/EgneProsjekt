@@ -10,19 +10,27 @@ namespace TextAdventureWPF.Model
 
         public GameModel()
         {
-           Player = new Player();
-           Screens = new List<Screen>
+            Player = new Player();
+            Screens = new List<Screen>
            {
-               new Screen("cave entrance", "There is a cold wind blowing through the area",null, new Screen[1]),
-               new Screen("inside the cave", "There is a cold wind blowing", null, new Screen[2]),
-               new Screen("storage", "There is a cold wind blowing", null, new Screen[2]),
-               new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[2]),
-               new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[2]),
-               new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[1])
+               new Screen("Cave entrance", "There is a cold wind blowing through the area",null, new Screen[4], "/Images/CaveEntrance.png"),
+               new Screen("Cave interior", "Something is lurking in the dark", null, new Screen[4], "/Images/CaveInterior.png"),
+               new Screen("Storage", "There is a cold wind blowing", null, new Screen[4], "/Images/Storage.png"),
+               new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], "/Images/wp1933949.png"),
+               new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], "/Images/wp1933949.png"),
+               new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], "/Images/wp1933949.png")
            };
-           Screens[0].Entrances[0] = Screens[1];
-           Screens[1].Entrances[0] = Screens[0];
-           Screens[1].Entrances[1] = Screens[2];
+            //Forover
+            Screens[0].Entrances[0] = Screens[1];
+
+            //Bakover
+            Screens[1].Entrances[1] = Screens[0];
+            
+            //Venstre
+            Screens[1].Entrances[2] = Screens[2];
+
+            //Høyre
+            Screens[2].Entrances[3] = Screens[1];
         }
     }
 }
