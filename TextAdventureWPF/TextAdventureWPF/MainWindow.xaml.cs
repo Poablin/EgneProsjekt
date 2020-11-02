@@ -24,12 +24,10 @@ namespace TextAdventureWPF
             StoryList.Items.Clear();
             InventoryList.Items.Clear();
 
+            // Fikser knappe teksten
             ForwardButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[0] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[0].PlaceName : "Blocked";
-
-            BackButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[1] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[1].PlaceName : "Blocked";            
-            
-            LeftButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[2] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[2].PlaceName : "Blocked";            
-            
+            BackButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[1] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[1].PlaceName : "Blocked";
+            LeftButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[2] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[2].PlaceName : "Blocked";
             RightButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[3] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[3].PlaceName : "Blocked";
 
             foreach (var line in GameModel.Screens[GameModel.CurrentScreen].GetLocationInfo())
