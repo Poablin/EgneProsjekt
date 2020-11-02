@@ -1,0 +1,18 @@
+﻿<Window x:Class="TextAdventureWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TextAdventureWPF"
+        mc:Ignorable="d"
+        Title="Adventure" Height="720" Width="1280">
+    <Grid Background="Black">
+        <ListBox x:Name="StoryList" Margin="260,470,260,0" Background="#FFD1D1D1"/>
+        <Image x:Name="MainImage" Margin="260,10,260,238" Source="/Images/wp1933949.png" Stretch="Fill" StretchDirection="Both"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1150,543,0,0" VerticalAlignment="Top" Height="68" Width="120"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1150,470,0,0" VerticalAlignment="Top" Height="68" Width="120"/>
+        <ListBox x:Name="InventoryList" Margin="10,470,1035,0" Background="#FFD1D1D1"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1025,543,0,0" VerticalAlignment="Top" Height="68" Width="120"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1025,470,0,0" VerticalAlignment="Top" Height="68" Width="120"/>
+    </Grid>
+</Window>
