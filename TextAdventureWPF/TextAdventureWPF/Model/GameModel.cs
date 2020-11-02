@@ -16,9 +16,9 @@ namespace TextAdventureWPF.Model
                new Screen("Cave entrance", "There is a cold wind blowing through the area",null, new Screen[4], "/Images/CaveEntrance.png"),
                new Screen("Cave interior", "Something is lurking in the dark", null, new Screen[4], "/Images/CaveInterior.png"),
                new Screen("Storage", "There is a cold wind blowing", null, new Screen[4], "/Images/Storage.png"),
-               new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], "/Images/wp1933949.png"),
-               new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], "/Images/wp1933949.png"),
-               new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], "/Images/wp1933949.png")
+               new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], "/Images/CaveEntrance.png"),
+               new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], "/Images/CaveEntrance.png"),
+               new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], "/Images/CaveEntrance.png")
            };
             //Forover
             Screens[0].Entrances[0] = Screens[1];
