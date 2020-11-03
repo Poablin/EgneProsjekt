@@ -51,19 +51,20 @@ namespace TextAdventureWPF.Model
                 }
             }
 
-            int entranceCount = 0;
-            foreach (var screen in GetAvailableTravel())
-            {
-                if (screen != null)
-                {
-                    if (entranceCount == 0)
-                    {
-                        entranceCount++;
-                        list.Add("Entrances available:");
-                    }
-                    list.Add(screen.PlaceName);
-                }
-            }
+            //Trenger ikke å liste entrances nå
+            //int entranceCount = 0;
+            //foreach (var screen in GetAvailableTravel())
+            //{
+            //    if (screen != null)
+            //    {
+            //        if (entranceCount == 0)
+            //        {
+            //            entranceCount++;
+            //            list.Add("Entrances available:");
+            //        }
+            //        list.Add(screen.PlaceName);
+            //    }
+            //}
             return list;
         }
 

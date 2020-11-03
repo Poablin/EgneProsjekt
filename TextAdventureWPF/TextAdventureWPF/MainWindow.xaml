@@ -15,6 +15,6 @@
         <Button x:Name="LeftButton" Content="Left" HorizontalAlignment="Left" Margin="1030,515,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="LeftButtonCall"/>
         <Button x:Name="ForwardButton" Content="Forward" HorizontalAlignment="Left" Margin="1085,470,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="ForwardButtonCall"/>
         <Button x:Name="UseButton" Content="Use" HorizontalAlignment="Left" Margin="1030,610,0,0" VerticalAlignment="Top" Height="40" Width="100"/>
-        <Button x:Name="PickUpButton" Content="Pick Up" HorizontalAlignment="Left" Margin="1135,610,0,0" VerticalAlignment="Top" Height="40" Width="100"/>
+        <Button x:Name="PickUpButton" Content="Pick Up" HorizontalAlignment="Left" Margin="1135,610,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="PickUpButtonCall"/>
     </Grid>
 </Window>

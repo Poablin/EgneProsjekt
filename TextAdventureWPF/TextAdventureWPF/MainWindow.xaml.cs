@@ -67,5 +67,11 @@ namespace TextAdventureWPF
             GameModel.ChangeScreen(3);
             ShowGameInfo();
         }
+
+        private void PickUpButtonCall(object sender, RoutedEventArgs e)
+        {
+            GameModel.PickUpItem();
+            ShowGameInfo();
+        }
     }
 }
