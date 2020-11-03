@@ -4,7 +4,7 @@ namespace TextAdventureWPF.Model
 {
     public class GameModel
     {
-        public int CurrentScreen;
+        public int currentScreen;
         public Player Player { get; set; }
         public List<Screen> Screens { get; set; }
 
@@ -35,23 +35,18 @@ namespace TextAdventureWPF.Model
 
         public void ChangeScreen(int directionNum)
         {
-            if (Screens.IndexOf(Screens[CurrentScreen].GetAvailableTravel()[directionNum]) != -1)
-            {
-                CurrentScreen = Screens.IndexOf(Screens[CurrentScreen].GetAvailableTravel()[directionNum]);
-            }
+            if (Screens.IndexOf(Screens[currentScreen].GetAvailableTravel()[directionNum]) == -1) return;
+            currentScreen = Screens.IndexOf(Screens[currentScreen].GetAvailableTravel()[directionNum]);
         }
 
         public void PickUpItem()
         {
-            if (Screens[CurrentScreen].Items != null)
+            if (Screens[currentScreen].Items == null) return;
+            foreach (var item in Screens[currentScreen].Items)
             {
-                foreach (var item in Screens[CurrentScreen].Items)
-                {
-                    Player.PlayerInventory.Add(item);
-                }
-
-                Screens[CurrentScreen].Items = null;
+                Player.PlayerInventory.Add(item);
             }
+            Screens[currentScreen].Items = null;
         }
     }
 }
