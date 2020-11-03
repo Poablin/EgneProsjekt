@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
+using TextAdventureWPF.Interfaces;
 
 namespace TextAdventureWPF.Model
 {
     public class GameModel
     {
         public int currentScreen;
-        public Player Player { get; set; }
+        public PlayerThief Player { get; set; }
         public List<Screen> Screens { get; set; }
 
         public GameModel()
         {
-            Player = new Player();
+            Player = new PlayerThief();
             Screens = new List<Screen>
            {
                new Screen("Cave entrance", "There is a cold wind blowing through the area",null, new Screen[4], "/Images/CaveEntrance.png"),
