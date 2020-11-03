@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
@@ -14,6 +15,16 @@ namespace TextAdventureWPF
         {
             InitializeComponent();
             ShowGameInfo();
+            // StreamWriter som bruker AppDomain
+            //using (System.IO.StreamWriter file =
+            //    new System.IO.StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "Inventory.txt"))
+            //{
+            //    foreach (var line in GameModel.Player.PlayerInventory)
+            //    {
+            //        file.WriteLine(line);
+            //    }
+            //}
+            
         }
 
         public void ShowGameInfo()
