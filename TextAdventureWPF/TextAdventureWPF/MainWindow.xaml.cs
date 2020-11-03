@@ -15,7 +15,7 @@ namespace TextAdventureWPF
         {
             InitializeComponent();
             ShowGameInfo();
-            // StreamWriter som bruker AppDomain
+            //StreamWriter som bruker AppDomain
             //using (System.IO.StreamWriter file =
             //    new System.IO.StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "Inventory.txt"))
             //{
@@ -24,7 +24,7 @@ namespace TextAdventureWPF
             //        file.WriteLine(line);
             //    }
             //}
-            
+
         }
 
         public void ShowGameInfo()
