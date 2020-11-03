@@ -9,12 +9,12 @@ namespace TextAdventureWPF.Model
     {
         public string PlaceName { get; set; }
         public string StoryText { get; set; }
-        public string Items { get; set; }
+        public string[] Items { get; set; }
         public int TimesVisited { get; set; }
         public Screen[] Entrances { get; set; }
         public string ImagePath { get; set; }
 
-        public Screen(string placeName, string storyText, string items, Screen[] entrances, string imagePath)
+        public Screen(string placeName, string storyText, string[] items, Screen[] entrances, string imagePath)
         {
             PlaceName = placeName;
             StoryText = storyText;
@@ -37,20 +37,29 @@ namespace TextAdventureWPF.Model
               list.Add($"{StoryText}");
             }
 
+            int itemsCount = 0;
             if (Items != null)
             {
-                list.Add($"{StoryText}");
+                if (itemsCount == 0)
+                {
+                    itemsCount++;
+                    list.Add("You see:");
+                }
+                foreach (var item in Items)
+                {
+                    list.Add($"{item}");
+                }
             }
             
-            int count = 0;
+            int entranceCount = 0;
             foreach (var screen in GetAvailableTravel())
             {
                 if (screen != null)
                 {
-                    if (count == 0)
+                    if (entranceCount == 0)
                     {
-                        count++;
-                        list.Add("Available entrances:");
+                        entranceCount++;
+                        list.Add("You see entrances to:");
                     }
                     list.Add(screen.PlaceName);
                 }
