@@ -14,23 +14,31 @@ namespace TextAdventureWPF.Model
             Screens = new List<Screen>
            {
                new Screen("Cave entrance", "There is a cold wind blowing through the area",null, new Screen[4], "/Images/CaveEntrance.png"),
-               new Screen("Cave interior", "Something is lurking in the dark", null, new Screen[4], "/Images/CaveInterior.png"),
+               new Screen("Cave interior", "Something is lurking in the dark", "Old Key", new Screen[4], "/Images/CaveInterior.png"),
                new Screen("Storage", "There is a cold wind blowing", null, new Screen[4], "/Images/Storage.png"),
                new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], "/Images/CaveEntrance.png"),
                new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], "/Images/CaveEntrance.png"),
                new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], "/Images/CaveEntrance.png")
            };
-            //Forover
+            //Forover er alltid Entrances[0]
             Screens[0].Entrances[0] = Screens[1];
 
-            //Bakover
+            //Bakover er alltid Entrances[1]
             Screens[1].Entrances[1] = Screens[0];
-            
-            //Venstre
+
+            //Venstre er alltid Entrances[2]
             Screens[1].Entrances[2] = Screens[2];
 
-            //Høyre
+            //Høyre er alltid Entrances[3]
             Screens[2].Entrances[3] = Screens[1];
+        }
+
+        public void ChangeScreen(int directionNum)
+        {
+            if (Screens.IndexOf(Screens[CurrentScreen].GetAvailableTravel()[directionNum]) != -1)
+            {
+                CurrentScreen = Screens.IndexOf(Screens[CurrentScreen].GetAvailableTravel()[directionNum]);
+            }
         }
     }
 }

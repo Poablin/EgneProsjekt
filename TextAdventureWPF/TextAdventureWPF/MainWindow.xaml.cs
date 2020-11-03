@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace TextAdventureWPF
@@ -25,10 +24,13 @@ namespace TextAdventureWPF
             InventoryList.Items.Clear();
 
             // Fikser knappe teksten
-            ForwardButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[0] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[0].PlaceName : "Blocked";
-            BackButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[1] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[1].PlaceName : "Blocked";
-            LeftButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[2] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[2].PlaceName : "Blocked";
-            RightButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[3] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[3].PlaceName : "Blocked";
+            ForwardButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[0] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[0].PlaceName : "";
+            BackButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[1] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[1].PlaceName : "";
+            LeftButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[2] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[2].PlaceName : "";
+            RightButton.Content = GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[3] != null ? GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[3].PlaceName : "";
+            PickUpButton.Content = GameModel.Screens[GameModel.CurrentScreen].Items == null ? "" : "Pick Up";
+
+            //InventoryList.SelectedItems.
 
             foreach (var line in GameModel.Screens[GameModel.CurrentScreen].GetLocationInfo())
             {
@@ -44,37 +46,25 @@ namespace TextAdventureWPF
 
         }
 
-        private void GoForwardScreen(object sender, RoutedEventArgs e)
+        private void ForwardButtonCall(object sender, RoutedEventArgs e)
         {
-            if (GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[0]) != -1)
-            {
-                GameModel.CurrentScreen = GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[0]);
-            }
+            GameModel.ChangeScreen(0);
             ShowGameInfo();
         }
 
-        private void GoScreenBack(object sender, RoutedEventArgs e)
+        private void BackButtonCall(object sender, RoutedEventArgs e)
         {
-            if (GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[1]) != -1)
-            {
-                GameModel.CurrentScreen = GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[1]);
-            }
+            GameModel.ChangeScreen(1);
             ShowGameInfo();
         }        
-        private void GoScreenLeft(object sender, RoutedEventArgs e)
+        private void LeftButtonCall(object sender, RoutedEventArgs e)
         {
-            if (GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[2]) != -1)
-            {
-                GameModel.CurrentScreen = GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[2]);
-            }
+            GameModel.ChangeScreen(2);
             ShowGameInfo();
         }       
-        private void GoScreenRight(object sender, RoutedEventArgs e)
+        private void RightButtonCall(object sender, RoutedEventArgs e)
         {
-            if (GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[3]) != -1)
-            {
-                GameModel.CurrentScreen = GameModel.Screens.IndexOf(GameModel.Screens[GameModel.CurrentScreen].GetAvailableTravel()[3]);
-            }
+            GameModel.ChangeScreen(3);
             ShowGameInfo();
         }
     }

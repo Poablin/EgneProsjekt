@@ -9,10 +9,12 @@
     <Grid Background="Black">
         <ListBox x:Name="StoryList" Margin="260,470,260,0" Background="#FFD1D1D1"/>
         <Image x:Name="MainImage" Margin="260,10,260,238" Source="/Images/wp1933949.png" Stretch="Fill" StretchDirection="Both"/>
-        <Button x:Name="RightButton" Content="Right" HorizontalAlignment="Left" Margin="1150,525,0,0" VerticalAlignment="Top" Height="50" Width="120" Click="GoScreenRight"/>
-        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" Margin="1085,580,0,0" VerticalAlignment="Top" Height="50" Width="120" Click="GoScreenBack"/>
+        <Button x:Name="RightButton" Content="Right" HorizontalAlignment="Left" Margin="1135,515,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="RightButtonCall"/>
+        <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Left" Margin="1085,560,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="BackButtonCall"/>
         <ListBox x:Name="InventoryList" Margin="10,470,1035,0" Background="#FFD1D1D1"/>
-        <Button x:Name="LeftButton" Content="Left" HorizontalAlignment="Left" Margin="1025,525,0,0" VerticalAlignment="Top" Height="50" Width="120" Click="GoScreenLeft"/>
-        <Button x:Name="ForwardButton" Content="Forward" HorizontalAlignment="Left" Margin="1085,470,0,0" VerticalAlignment="Top" Height="50" Width="120" Click="GoForwardScreen"/>
+        <Button x:Name="LeftButton" Content="Left" HorizontalAlignment="Left" Margin="1030,515,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="LeftButtonCall"/>
+        <Button x:Name="ForwardButton" Content="Forward" HorizontalAlignment="Left" Margin="1085,470,0,0" VerticalAlignment="Top" Height="40" Width="100" Click="ForwardButtonCall"/>
+        <Button x:Name="UseButton" Content="Use" HorizontalAlignment="Left" Margin="1030,610,0,0" VerticalAlignment="Top" Height="40" Width="100"/>
+        <Button x:Name="PickUpButton" Content="Pick Up" HorizontalAlignment="Left" Margin="1135,610,0,0" VerticalAlignment="Top" Height="40" Width="100"/>
     </Grid>
 </Window>

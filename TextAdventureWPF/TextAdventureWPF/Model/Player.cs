@@ -5,12 +5,11 @@ namespace TextAdventureWPF.Model
 {
     public class Player
     {
-        public int PlayerHealth { get; set; }
         public List<string> PlayerInventory { get; set; }
 
         public Player()
         {
-            PlayerInventory = new List<string>() {"Sword", "Leather Armor"};
+            PlayerInventory = new List<string>() {"Lockpick"};
         }
 
         public List<string> GetInventoryInfo()
