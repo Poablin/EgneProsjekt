@@ -24,7 +24,7 @@ namespace TextAdventureWPF.Model
         }
 
         public List<string> GetLocationInfo()
-        { 
+        {
             var list = new List<string>();
 
             if (PlaceName != null)
@@ -34,7 +34,7 @@ namespace TextAdventureWPF.Model
 
             if (StoryText != null)
             {
-              list.Add($"{StoryText}");
+                list.Add($"{StoryText}");
             }
 
             int itemsCount = 0;
@@ -43,14 +43,14 @@ namespace TextAdventureWPF.Model
                 if (itemsCount == 0)
                 {
                     itemsCount++;
-                    list.Add("You see:");
+                    list.Add("Items available:");
                 }
                 foreach (var item in Items)
                 {
                     list.Add($"{item}");
                 }
             }
-            
+
             int entranceCount = 0;
             foreach (var screen in GetAvailableTravel())
             {
@@ -59,20 +59,11 @@ namespace TextAdventureWPF.Model
                     if (entranceCount == 0)
                     {
                         entranceCount++;
-                        list.Add("You see entrances to:");
+                        list.Add("Entrances available:");
                     }
                     list.Add(screen.PlaceName);
                 }
             }
-
-            //if (Entrances != null) 
-            //{
-            //    list.Add($"Available entrances:");
-            //    for (int i = 0; i < Entrances.Length; i++)
-            //    {
-            //        list.Add(Entrances[i].PlaceName);
-            //    }
-            //}
             return list;
         }
 

@@ -9,12 +9,11 @@ namespace TextAdventureWPF.Model
 
         public Player()
         {
-            PlayerInventory = new List<string>() {"Lockpick"};
+            PlayerInventory = new List<string>() { "Lockpick" };
         }
 
         public List<string> GetInventoryInfo()
         {
-            int count = 0;
             var list = new List<string>();
             foreach (var thing in PlayerInventory)
             {

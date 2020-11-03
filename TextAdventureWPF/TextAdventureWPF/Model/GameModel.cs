@@ -4,7 +4,7 @@ namespace TextAdventureWPF.Model
 {
     public class GameModel
     {
-        public int CurrentScreen = 0;
+        public int CurrentScreen;
         public Player Player { get; set; }
         public List<Screen> Screens { get; set; }
 

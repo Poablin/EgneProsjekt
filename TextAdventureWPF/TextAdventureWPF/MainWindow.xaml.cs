@@ -56,12 +56,12 @@ namespace TextAdventureWPF
         {
             GameModel.ChangeScreen(1);
             ShowGameInfo();
-        }        
+        }
         private void LeftButtonCall(object sender, RoutedEventArgs e)
         {
             GameModel.ChangeScreen(2);
             ShowGameInfo();
-        }       
+        }
         private void RightButtonCall(object sender, RoutedEventArgs e)
         {
             GameModel.ChangeScreen(3);
