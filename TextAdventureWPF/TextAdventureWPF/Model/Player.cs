@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace TextAdventureWPF.Model
 {
@@ -9,18 +9,11 @@ namespace TextAdventureWPF.Model
 
         public Player()
         {
-            PlayerInventory = new List<string>() { "Lockpick" };
+            PlayerInventory = new List<string>() { "Lockpick", "Dagger" };
         }
-
         public List<string> GetInventoryInfo()
         {
-            var list = new List<string>();
-            foreach (var thing in PlayerInventory)
-            {
-                list.Add(thing);
-            }
-
-            return list;
+            return PlayerInventory.ToList();
         }
     }
 }

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Encodings.Web;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace TextAdventureWPF.Model
 {
@@ -27,58 +25,23 @@ namespace TextAdventureWPF.Model
         {
             var list = new List<string>();
 
-            if (PlaceName != null)
-            {
-                list.Add($"You are standing at {PlaceName}");
-            }
+            if (PlaceName != null) list.Add($"You are standing at {PlaceName}");
+            if (StoryText != null) list.Add($"{StoryText}");
 
-            if (StoryText != null)
-            {
-                list.Add($"{StoryText}");
-            }
+            if (Items == null) return list;
+            list.Add("Items available:");
+            list.AddRange(Items.Select(item => $"{item}"));
 
-            int itemsCount = 0;
-            if (Items != null)
-            {
-                if (itemsCount == 0)
-                {
-                    itemsCount++;
-                    list.Add("Items available:");
-                }
-                foreach (var item in Items)
-                {
-                    list.Add($"{item}");
-                }
-            }
-
-            //Trenger ikke å liste entrances akkurat nå
-            //int entranceCount = 0;
-            //foreach (var screen in GetAvailableTravel())
-            //{
-            //    if (screen != null)
-            //    {
-            //        if (entranceCount == 0)
-            //        {
-            //            entranceCount++;
-            //            list.Add("Entrances available:");
-            //        }
-            //        list.Add(screen.PlaceName);
-            //    }
-            //}
+            //Legger til entrances, men trenger ikke akkurat nå. Åpne if (Items == null) return list om den skal legges til.
+            //list.Add("Entrances available:");
+            //list.AddRange(from screen in GetAvailableTravel() where screen != null select screen.PlaceName);
             return list;
         }
 
         public List<Screen> GetAvailableTravel()
         {
             var list = new List<Screen>();
-            if (Entrances != null)
-            {
-                for (int i = 0; i < Entrances.Length; i++)
-                {
-                    list.Add(Entrances[i]);
-                }
-            }
-
+            if (Entrances != null) list.AddRange(Entrances);
             return list;
         }
     }
