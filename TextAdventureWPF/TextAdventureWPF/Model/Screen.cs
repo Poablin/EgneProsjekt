@@ -51,7 +51,7 @@ namespace TextAdventureWPF.Model
                 }
             }
 
-            //Trenger ikke å liste entrances nå
+            //Trenger ikke å liste entrances akkurat nå
             //int entranceCount = 0;
             //foreach (var screen in GetAvailableTravel())
             //{
