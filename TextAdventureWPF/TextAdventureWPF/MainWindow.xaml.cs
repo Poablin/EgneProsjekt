@@ -13,10 +13,10 @@ namespace TextAdventureWPF
         public MainWindow()
         {
             InitializeComponent();
-            ShowGameInfo();
+            UpdateGameInfo();
         }
 
-        public void ShowGameInfo()
+        public void UpdateGameInfo()
         {
             MainImage.Source = new BitmapImage(new Uri(gameModel.Screens[gameModel.currentScreen].ImagePath, UriKind.Relative));
             StoryList.Items.Clear();
@@ -47,35 +47,38 @@ namespace TextAdventureWPF
         private void ForwardButtonCall(object sender, RoutedEventArgs e)
         {
             gameModel.ChangeScreen(0);
-            ShowGameInfo();
+            UpdateGameInfo();
         }
 
         private void BackButtonCall(object sender, RoutedEventArgs e)
         {
             gameModel.ChangeScreen(1);
-            ShowGameInfo();
+            UpdateGameInfo();
         }
         private void LeftButtonCall(object sender, RoutedEventArgs e)
         {
             gameModel.ChangeScreen(2);
-            ShowGameInfo();
+            UpdateGameInfo();
         }
         private void RightButtonCall(object sender, RoutedEventArgs e)
         {
             gameModel.ChangeScreen(3);
-            ShowGameInfo();
+            UpdateGameInfo();
         }
 
         private void PickUpButtonCall(object sender, RoutedEventArgs e)
         {
             gameModel.PickUpItem();
-            ShowGameInfo();
+            UpdateGameInfo();
+            StoryList.Items.Add("You picked up something!");
+
         }
 
         private void UseButtonCall(object sender, RoutedEventArgs e)
         {
             gameModel.UseItem();
-            ShowGameInfo();
+            UpdateGameInfo();
+            StoryList.Items.Add("You used something!");
         }
     }
 }

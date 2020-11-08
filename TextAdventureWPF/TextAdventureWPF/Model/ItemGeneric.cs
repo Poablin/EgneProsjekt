@@ -7,13 +7,13 @@ namespace TextAdventureWPF.Model
 {
     public class ItemGeneric : IItem
     {
-        public string Name { get; set; }
-        public int Id { get; set; }
+        public string ItemName { get; set; }
+        public int ItemId { get; set; }
 
         public ItemGeneric(string name, int id)
         {
-            Name = name;
-            Id = id;
+            ItemName = name;
+            ItemId = id;
         }
     }
 }

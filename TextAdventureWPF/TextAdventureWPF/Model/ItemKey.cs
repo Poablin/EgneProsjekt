@@ -7,17 +7,17 @@ namespace TextAdventureWPF.Model
 {
     public class ItemKey : IItem, IItemKey
     {
-        public string Name { get; set; }
-        public int Id { get; set; }
-        public string UnlockName { get; set; }
-        public int DoorDirectionId { get; set; }
+        public string ItemName { get; set; }
+        public int ItemId { get; set; }
+        public string ScreenUnlockName { get; set; }
+        public int DoorUnlockDirectionId { get; set; }
 
-        public ItemKey(string name, int id, string unlockName, int doorDirectionId)
+        public ItemKey(string name, int id, string screenUnlockName, int doorUnlockDirectionId)
         {
-            Name = name;
-            Id = id;
-            UnlockName = unlockName;
-            DoorDirectionId = doorDirectionId;
+            ItemName = name;
+            ItemId = id;
+            ScreenUnlockName = screenUnlockName;
+            DoorUnlockDirectionId = doorUnlockDirectionId;
         }
     }
 }

@@ -17,7 +17,7 @@ namespace TextAdventureWPF.Model
         public List<string> GetInventoryInfo()
         {
             var list = new List<string>();
-            list.AddRange(PlayerInventory.Select(item => $"{item?.Name}"));
+            list.AddRange(PlayerInventory.Select(item => $"{item?.ItemName}"));
             return list;
         }
     }

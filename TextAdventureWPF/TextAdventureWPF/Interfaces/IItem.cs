@@ -6,7 +6,7 @@ namespace TextAdventureWPF.Interfaces
 {
     public interface IItem
     {
-        public string Name { get; set; }
-        public int Id { get; set; }
+        public string ItemName { get; set; }
+        public int ItemId { get; set; }
     }
 }
