@@ -7,5 +7,6 @@ namespace TextAdventureWPF.Interfaces
     interface IItemKey
     {
         public string UnlockName { get; set; }
+        public int DoorDirectionId { get; set; }
     }
 }

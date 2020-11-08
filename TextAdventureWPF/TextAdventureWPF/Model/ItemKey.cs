@@ -10,12 +10,14 @@ namespace TextAdventureWPF.Model
         public string Name { get; set; }
         public int Id { get; set; }
         public string UnlockName { get; set; }
+        public int DoorDirectionId { get; set; }
 
-        public ItemKey(string name, int id, string unlockName)
+        public ItemKey(string name, int id, string unlockName, int doorDirectionId)
         {
             Name = name;
             Id = id;
             UnlockName = unlockName;
+            DoorDirectionId = doorDirectionId;
         }
     }
 }

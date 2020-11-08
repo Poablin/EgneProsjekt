@@ -11,10 +11,10 @@ namespace TextAdventureWPF.Model
         public List<IItem> Items { get; set; }
         public int TimesVisited { get; set; }
         public Screen[] Entrances { get; set; }
-        public int[] EntrancesLockedId { get; set; }
+        public List<int> EntrancesLockedId { get; set; }
         public string ImagePath { get; set; }
 
-        public Screen(string placeName, string storyText, List<IItem> items, Screen[] entrances,int[] entrancesLockedId, string imagePath)
+        public Screen(string placeName, string storyText, List<IItem> items, Screen[] entrances, List<int> entrancesLockedId, string imagePath)
         {
             PlaceName = placeName;
             StoryText = storyText;
@@ -50,7 +50,7 @@ namespace TextAdventureWPF.Model
 
         public bool CheckIfDoorLocked(int id)
         {
-            return EntrancesLockedId.Any(entranceId => entranceId == id);
+            return EntrancesLockedId != null && EntrancesLockedId.Any(entranceId => entranceId == id);
         }
     }
 }
