@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TextAdventureWPF.Interfaces;
 
 namespace TextAdventureWPF.Model
 {
@@ -14,7 +15,7 @@ namespace TextAdventureWPF.Model
             Screens = new List<Screen>
            {
                new Screen("Cave entrance", "There is a cold wind blowing through the area",null, new Screen[4],new int[] {4}, "/Images/CaveEntrance.png"),
-               new Screen("Cave interior", "Something is lurking in the dark", new List<Item>() {new Item("Old Key", 3)}, new Screen[4], new int[] {2}, "/Images/CaveInterior.png"),
+               new Screen("Cave interior", "Something is lurking in the dark", new List<IItem>() {new ItemKey("Old Key", 3, "Storage")}, new Screen[4], new int[] {2}, "/Images/CaveInterior.png"),
                new Screen("Storage", "Cobwebs and dust is everywhere", null, new Screen[4], new int[] {4}, "/Images/Storage.png"),
                new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], new int[] {4}, "/Images/CaveEntrance.png"),
                new Screen("Unfinished", "There is a cold wind blowing", null, new Screen[4], new int[] {4}, "/Images/CaveEntrance.png"),
@@ -52,7 +53,18 @@ namespace TextAdventureWPF.Model
 
         public void UseItem()
         {
-
+            foreach (var item in Player.PlayerInventory)
+            {
+                if (!(item is IItemKey key)) continue;
+                foreach (var entrance in Screens[currentScreen].Entrances)
+                {
+                    if (entrance == null) continue;
+                    if (key.UnlockName == entrance.PlaceName)
+                    {
+                        Screens[currentScreen].EntrancesLockedId = new[] { 4 };
+                    }
+                }
+            }
         }
     }
 }

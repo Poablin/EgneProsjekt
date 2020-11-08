@@ -7,17 +7,17 @@ namespace TextAdventureWPF.Model
     public class PlayerThief : IPlayer
 
     {
-        public List<Item> PlayerInventory { get; set; }
+        public List<IItem> PlayerInventory { get; set; }
 
         public PlayerThief()
         {
-            PlayerInventory = new List<Item>() { new Item("LockPick", 0), new Item("Dagger", 1) };
+            PlayerInventory = new List<IItem>() { new ItemGeneric("LockPick", 0), new ItemGeneric("Dagger", 1) };
         }
 
         public List<string> GetInventoryInfo()
         {
             var list = new List<string>();
-            list.AddRange(PlayerInventory.Select(item => $"{item?.name}"));
+            list.AddRange(PlayerInventory.Select(item => $"{item?.Name}"));
             return list;
         }
     }

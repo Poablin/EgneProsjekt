@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TextAdventureWPF.Interfaces;
 
 namespace TextAdventureWPF.Model
 {
@@ -7,13 +8,13 @@ namespace TextAdventureWPF.Model
     {
         public string PlaceName { get; set; }
         public string StoryText { get; set; }
-        public List<Item> Items { get; set; }
+        public List<IItem> Items { get; set; }
         public int TimesVisited { get; set; }
         public Screen[] Entrances { get; set; }
         public int[] EntrancesLockedId { get; set; }
         public string ImagePath { get; set; }
 
-        public Screen(string placeName, string storyText, List<Item> items, Screen[] entrances,int[] entrancesLockedId, string imagePath)
+        public Screen(string placeName, string storyText, List<IItem> items, Screen[] entrances,int[] entrancesLockedId, string imagePath)
         {
             PlaceName = placeName;
             StoryText = storyText;
@@ -32,7 +33,7 @@ namespace TextAdventureWPF.Model
 
             if (Items == null) return list;
             list.Add("Items available:");
-            list.AddRange(Items.Select(item => $"{item?.name}"));
+            list.AddRange(Items.Select(item => $"{item?.Name}"));
 
             //Legger til entrances, men trenger ikke akkurat nå. Åpne if (Items == null) return list om den skal legges til.
             //list.Add("Entrances available:");

@@ -18,7 +18,6 @@ namespace TextAdventureWPF
 
         public void ShowGameInfo()
         {
-
             MainImage.Source = new BitmapImage(new Uri(gameModel.Screens[gameModel.currentScreen].ImagePath, UriKind.Relative));
             StoryList.Items.Clear();
             InventoryList.Items.Clear();
@@ -30,7 +29,6 @@ namespace TextAdventureWPF
             RightButton.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[3] == null ? "" : gameModel.Screens[gameModel.currentScreen].CheckIfDoorLocked(3) ? "Locked" : gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[3].PlaceName;
             PickUpButton.Content = gameModel.Screens[gameModel.currentScreen].Items == null ? "" : "Pick Up";
 
-            //InventoryList.SelectedItems.
 
             foreach (var line in gameModel.Screens[gameModel.currentScreen].GetLocationInfo())
             {
@@ -71,6 +69,12 @@ namespace TextAdventureWPF
         private void PickUpButtonCall(object sender, RoutedEventArgs e)
         {
             gameModel.PickUpItem();
+            ShowGameInfo();
+        }
+
+        private void UseButtonCall(object sender, RoutedEventArgs e)
+        {
+            gameModel.UseItem();
             ShowGameInfo();
         }
     }

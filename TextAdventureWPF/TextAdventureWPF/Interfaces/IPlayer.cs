@@ -5,8 +5,7 @@ namespace TextAdventureWPF.Interfaces
 {
     public interface IPlayer
     {
-        public List<Item> PlayerInventory { get; set; }
-
+        public List<IItem> PlayerInventory { get; set; }
         public List<string> GetInventoryInfo();
     }
 }
