@@ -24,10 +24,10 @@ namespace TextAdventureWPF
             InventoryList.Items.Clear();
 
             // Fikser knappe teksten
-            ForwardButton.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[0] != null ? gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[0].PlaceName : "";
-            BackButton.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[1] != null ? gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[1].PlaceName : "";
-            LeftButton.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[2] != null ? gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[2].PlaceName : "";
-            RightButton.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[3] != null ? gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[3].PlaceName : "";
+            ForwardButton.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[0] == null ? "" : gameModel.Screens[gameModel.currentScreen].CheckIfDoorLocked(0) ? "Locked" : gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[0].PlaceName;
+            BackButton.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[1] == null ? "" : gameModel.Screens[gameModel.currentScreen].CheckIfDoorLocked(1) ? "Locked" : gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[1].PlaceName;
+            LeftButton.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[2] == null ? "" : gameModel.Screens[gameModel.currentScreen].CheckIfDoorLocked(2) ? "Locked" : gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[2].PlaceName;
+            RightButton.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[3] == null ? "" : gameModel.Screens[gameModel.currentScreen].CheckIfDoorLocked(3) ? "Locked" : gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[3].PlaceName;
             PickUpButton.Content = gameModel.Screens[gameModel.currentScreen].Items == null ? "" : "Pick Up";
 
             //InventoryList.SelectedItems.
