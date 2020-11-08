@@ -7,12 +7,12 @@ namespace TextAdventureWPF.Model
     {
         public string PlaceName { get; set; }
         public string StoryText { get; set; }
-        public string[] Items { get; set; }
+        public List<Item> Items { get; set; }
         public int TimesVisited { get; set; }
         public Screen[] Entrances { get; set; }
         public string ImagePath { get; set; }
 
-        public Screen(string placeName, string storyText, string[] items, Screen[] entrances, string imagePath)
+        public Screen(string placeName, string storyText, List<Item> items, Screen[] entrances, string imagePath)
         {
             PlaceName = placeName;
             StoryText = storyText;
@@ -30,7 +30,7 @@ namespace TextAdventureWPF.Model
 
             if (Items == null) return list;
             list.Add("Items available:");
-            list.AddRange(Items.Select(item => $"{item}"));
+            list.AddRange(Items.Select(item => $"{item?.name}"));
 
             //Legger til entrances, men trenger ikke akkurat nå. Åpne if (Items == null) return list om den skal legges til.
             //list.Add("Entrances available:");
