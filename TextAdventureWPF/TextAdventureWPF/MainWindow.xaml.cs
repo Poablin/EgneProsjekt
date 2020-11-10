@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace TextAdventureWPF
@@ -51,24 +52,10 @@ namespace TextAdventureWPF
             }
 
         }
-        private void ForwardButtonCall(object sender, RoutedEventArgs e)
+        private void MoveButtonCall(object sender,RoutedEventArgs e)
         {
-            gameModel.ChangeScreen(0);
-            UpdateGameInfo();
-        }
-        private void BackButtonCall(object sender, RoutedEventArgs e)
-        {
-            gameModel.ChangeScreen(1);
-            UpdateGameInfo();
-        }
-        private void LeftButtonCall(object sender, RoutedEventArgs e)
-        {
-            gameModel.ChangeScreen(2);
-            UpdateGameInfo();
-        }
-        private void RightButtonCall(object sender, RoutedEventArgs e)
-        {
-            gameModel.ChangeScreen(3);
+            Button button = (Button)sender;
+            gameModel.ChangeScreen(Convert.ToInt32(button.CommandParameter));
             UpdateGameInfo();
         }
         private void PickUpButtonCall(object sender, RoutedEventArgs e)
