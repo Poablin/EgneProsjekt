@@ -38,19 +38,15 @@ namespace TextAdventureWPF
                 gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[3].PlaceName;
             PickUpButton.Content = gameModel.Screens[gameModel.currentScreen].Items == null ? "" : "Pick Up";
 
-
             foreach (var line in gameModel.Screens[gameModel.currentScreen].GetLocationInfo())
             {
                 StoryList.Items.Add(line);
             }
 
-            gameModel.Screens[gameModel.currentScreen].TimesVisited++;
-
             foreach (var thing in gameModel.Player.GetInventoryInfo())
             {
                 InventoryList.Items.Add(thing);
             }
-
         }
         private void MoveButtonCall(object sender,RoutedEventArgs e)
         {

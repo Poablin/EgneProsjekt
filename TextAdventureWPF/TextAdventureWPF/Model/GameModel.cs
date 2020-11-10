@@ -40,6 +40,7 @@ namespace TextAdventureWPF.Model
         {
             if (Screens.IndexOf(Screens[currentScreen].GetAvailableTravel()[directionNum]) == -1) return;
             if (Screens[currentScreen].CheckIfDoorLocked(directionNum)) return;
+            Screens[currentScreen].TimesVisited++;
             currentScreen = Screens.IndexOf(Screens[currentScreen].GetAvailableTravel()[directionNum]);
         }
 
