@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using TextAdventureWPF.Interfaces;
 
 namespace TextAdventureWPF
 {
@@ -60,9 +62,19 @@ namespace TextAdventureWPF
         }
         private void UseButtonCall(object sender, RoutedEventArgs e)
         {
-            gameModel.UseItem();
+            if (InventoryList.SelectedItem == null)
+            {
+                StoryList.Items.Add("You haven't selected an item");
+                return;
+            }
+            IItem selectedItem = null;
+            foreach (var item in gameModel.Player.PlayerInventory.Where(item => item.ItemName == (string) InventoryList.SelectedItem))
+            {
+                selectedItem = item;
+            }
+            gameModel.UseItem(selectedItem);
             UpdateGameInfo();
-            StoryList.Items.Add("You used something!");
+            StoryList.Items.Add($"You used {selectedItem.ItemName}!");
         }
     }
 }

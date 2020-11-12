@@ -54,19 +54,16 @@ namespace TextAdventureWPF.Model
             Screens[currentScreen].Items = null;
         }
 
-        public void UseItem()
+        public void UseItem(object item)
         {
-            // Sjekker alle nøklene du har i inventory, og åpner dørene der det passer
-            foreach (var item in Player.PlayerInventory)
+            // Hvis item er en key
+            if (!(item is IItemKey key)) return;
+            foreach (var entrance in Screens[currentScreen].Entrances)
             {
-                if (!(item is IItemKey key)) continue;
-                foreach (var entrance in Screens[currentScreen].Entrances)
+                if (entrance == null) continue;
+                if (key.ScreenUnlockName == entrance.PlaceName)
                 {
-                    if (entrance == null) continue;
-                    if (key.ScreenUnlockName == entrance.PlaceName)
-                    {
-                        Screens[currentScreen].EntrancesLockedId.Remove(key.DoorUnlockDirectionId);
-                    }
+                    Screens[currentScreen].EntrancesLockedId.Remove(key.DoorUnlockDirectionId);
                 }
             }
         }
