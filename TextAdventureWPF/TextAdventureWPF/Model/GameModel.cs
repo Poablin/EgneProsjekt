@@ -23,14 +23,11 @@ namespace TextAdventureWPF.Model
             //Forover er alltid Entrances[0]
             Screens[0].Entrances[0] = Screens[1];
             Screens[1].Entrances[0] = Screens[3];
-
             //Bakover er alltid Entrances[1]
             Screens[1].Entrances[1] = Screens[0];
             Screens[3].Entrances[1] = Screens[1];
-
             //Venstre er alltid Entrances[2]
             Screens[1].Entrances[2] = Screens[2];
-
             //Høyre er alltid Entrances[3]
             Screens[2].Entrances[3] = Screens[1];
             Screens[1].Entrances[3] = Screens[4];
@@ -47,10 +44,7 @@ namespace TextAdventureWPF.Model
         public void PickUpItem()
         {
             if (Screens[currentScreen].Items == null) return;
-            foreach (var item in Screens[currentScreen].Items)
-            {
-                Player.PlayerInventory.Add(item);
-            }
+            Player.PlayerInventory.AddRange(Screens[currentScreen].Items);
             Screens[currentScreen].Items = null;
         }
 

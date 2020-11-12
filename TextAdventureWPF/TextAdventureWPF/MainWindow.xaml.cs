@@ -2,64 +2,50 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 using TextAdventureWPF.Interfaces;
+using TextAdventureWPF.Model;
 
 namespace TextAdventureWPF
 {
     public partial class MainWindow : Window
     {
-        public Model.GameModel gameModel = new Model.GameModel();
+        public GameModel gameModel = new GameModel();
+
         public MainWindow()
         {
             InitializeComponent();
-            UpdateGameInfo();
+            UpdateUi();
         }
 
-        public void UpdateGameInfo()
+        public void UpdateUi()
         {
-            MainImage.Source = new BitmapImage(new Uri(gameModel.Screens[gameModel.currentScreen].ImagePath, UriKind.Relative));
-            StoryList.Items.Clear();
-            InventoryList.Items.Clear();
+            UiUpdate.SetMainImage(gameModel, MainImage);
 
-            // Fikser knappe teksten
-            ForwardButton.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[0] == null ? "" :
-                gameModel.Screens[gameModel.currentScreen].CheckIfDoorLocked(0) ? "Locked" :
-                gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[0].PlaceName;
-            BackButton.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[1] == null ? "" :
-                gameModel.Screens[gameModel.currentScreen].CheckIfDoorLocked(1) ? "Locked" :
-                gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[1].PlaceName;
-            LeftButton.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[2] == null ? "" :
-                gameModel.Screens[gameModel.currentScreen].CheckIfDoorLocked(2) ? "Locked" :
-                gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[2].PlaceName;
-            RightButton.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[3] == null ? "" :
-                gameModel.Screens[gameModel.currentScreen].CheckIfDoorLocked(3) ? "Locked" :
-                gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[3].PlaceName;
-            PickUpButton.Content = gameModel.Screens[gameModel.currentScreen].Items == null ? "" : "Pick Up";
+            UiUpdate.SetButtonTextToDirectionName(gameModel, ForwardButton, 0);
+            UiUpdate.SetButtonTextToDirectionName(gameModel, BackButton, 1);
+            UiUpdate.SetButtonTextToDirectionName(gameModel, LeftButton, 2);
+            UiUpdate.SetButtonTextToDirectionName(gameModel, RightButton, 3);
 
-            foreach (var line in gameModel.Screens[gameModel.currentScreen].GetLocationInfo())
-            {
-                StoryList.Items.Add(line);
-            }
-
-            foreach (var thing in gameModel.Player.GetInventoryInfo())
-            {
-                InventoryList.Items.Add(thing);
-            }
+            UiUpdate.ClearLists(StoryList, InventoryList);
+            UiUpdate.AddInfoToList(StoryList, gameModel.Screens[gameModel.currentScreen].GetLocationInfo());
+            UiUpdate.AddInfoToList(InventoryList, gameModel.Player.GetInventoryInfo());
         }
-        private void MoveButtonCall(object sender,RoutedEventArgs e)
+
+        private void MoveButtonCall(object sender, RoutedEventArgs e)
         {
-            Button button = (Button)sender;
+            Button button = (Button) sender;
             gameModel.ChangeScreen(Convert.ToInt32(button.CommandParameter));
-            UpdateGameInfo();
+            UpdateUi();
         }
+
         private void PickUpButtonCall(object sender, RoutedEventArgs e)
         {
+            if (gameModel.Screens[gameModel.currentScreen].Items == null) return;
             gameModel.PickUpItem();
-            UpdateGameInfo();
+            UpdateUi();
             StoryList.Items.Add("You picked up something!");
-
         }
+
         private void UseButtonCall(object sender, RoutedEventArgs e)
         {
             if (InventoryList.SelectedItem == null)
@@ -67,14 +53,17 @@ namespace TextAdventureWPF
                 StoryList.Items.Add("You haven't selected an item");
                 return;
             }
+            
             IItem selectedItem = null;
-            foreach (var item in gameModel.Player.PlayerInventory.Where(item => item.ItemName == (string) InventoryList.SelectedItem))
+            foreach (var item in gameModel.Player.PlayerInventory.Where(item => item.ItemName == (string)InventoryList.SelectedItem)) selectedItem = item;
+            switch (selectedItem)
             {
-                selectedItem = item;
+                case ItemKey key:
+                    gameModel.UseItem(key);
+                    UpdateUi();
+                    StoryList.Items.Add($"You used {key.ItemName} and unlocked {key.ScreenUnlockName}!");
+                    break;
             }
-            gameModel.UseItem(selectedItem);
-            UpdateGameInfo();
-            StoryList.Items.Add($"You used {selectedItem.ItemName}!");
         }
     }
 }

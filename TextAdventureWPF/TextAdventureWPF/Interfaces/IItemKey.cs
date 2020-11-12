@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TextAdventureWPF.Interfaces
 {
-    interface IItemKey
+    internal interface IItemKey : IItem
     {
         public string ScreenUnlockName { get; set; }
         public int DoorUnlockDirectionId { get; set; }
