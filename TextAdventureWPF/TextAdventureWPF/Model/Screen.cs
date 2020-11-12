@@ -29,7 +29,7 @@ namespace TextAdventureWPF.Model
             var list = new List<string>();
 
             if (PlaceName != null) list.Add($"You are standing at {PlaceName}");
-            if (StoryText != null) list.Add($"{StoryText}");
+            if (StoryText != null && TimesVisited < 1) list.Add($"{StoryText}");
 
             if (Items == null) return list;
             list.Add("Items available:");
