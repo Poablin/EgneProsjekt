@@ -51,7 +51,7 @@ namespace TextAdventureWPF
                     gameModel.PickUpItem();
                     UpdateUi();
                     StoryList.Items.Add("You picked up something");
-                    break;
+                    return;
             }
         }
 
@@ -66,10 +66,10 @@ namespace TextAdventureWPF
                     break;
                 case string selectedItem:
                     var selectedItemName = selectedItem;
-                    gameModel.Use(selectedItemName, StoryList);
+                    gameModel.Use(selectedItemName);
                     UpdateUi();
                     StoryList.Items.Add($"You used {selectedItemName}");
-                    break;
+                    return;
             }
         }
     }

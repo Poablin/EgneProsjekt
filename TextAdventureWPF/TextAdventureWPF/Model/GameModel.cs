@@ -50,7 +50,7 @@ namespace TextAdventureWPF.Model
             Screens[currentScreen].Items = null;
         }
 
-        public void Use(string selectedItemName,ItemsControl storyList)
+        public void Use(string selectedItemName)
         {
             IItem selectedItem = null;
             foreach (var thing in Player.PlayerInventory.Where(thing => thing.ItemName == selectedItemName)) selectedItem = thing;
