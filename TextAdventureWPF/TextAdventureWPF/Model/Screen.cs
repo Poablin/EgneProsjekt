@@ -32,7 +32,7 @@ namespace TextAdventureWPF.Model
             if (StoryText != null && TimesVisited < 1) list.Add($"{StoryText}");
 
             if (Items == null) return list;
-            list.Add("Items available:");
+            list.Add("Items here:");
             list.AddRange(Items.Select(item => $"{item?.ItemName}"));
 
             //Legger til entrances, men trenger ikke akkurat nå. Åpne if (Items == null) return list om den skal legges til.

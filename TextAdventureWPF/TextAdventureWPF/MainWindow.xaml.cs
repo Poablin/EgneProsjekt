@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -40,28 +41,34 @@ namespace TextAdventureWPF
 
         private void PickUpButtonCall(object sender, RoutedEventArgs e)
         {
-            if (gameModel.Screens[gameModel.currentScreen].Items == null) return;
-            gameModel.PickUpItem();
-            UpdateUi();
-            StoryList.Items.Add("You picked up something!");
+            switch (gameModel.Screens[gameModel.currentScreen].Items)
+            {
+                case null:
+                    UpdateUi();
+                    StoryList.Items.Add("Nothing to pick up");
+                    break;
+                case { } item:
+                    gameModel.PickUpItem();
+                    UpdateUi();
+                    StoryList.Items.Add("You picked up something");
+                    break;
+            }
         }
 
         private void UseButtonCall(object sender, RoutedEventArgs e)
         {
-            if (InventoryList.SelectedItem == null)
+            //Finn en måte å få ut informasjon for hva itemet man brukte gjorde
+            switch (InventoryList.SelectedItem)
             {
-                StoryList.Items.Add("You haven't selected an item");
-                return;
-            }
-            
-            IItem selectedItem = null;
-            foreach (var item in gameModel.Player.PlayerInventory.Where(item => item.ItemName == (string)InventoryList.SelectedItem)) selectedItem = item;
-            switch (selectedItem)
-            {
-                case ItemKey key:
-                    gameModel.UseItem(key);
+                case null:
                     UpdateUi();
-                    StoryList.Items.Add($"You used {key.ItemName} and unlocked {key.ScreenUnlockName}!");
+                    StoryList.Items.Add("You haven't selected anything");
+                    break;
+                case string selectedItem:
+                    var selectedItemName = selectedItem;
+                    gameModel.Use(selectedItemName, StoryList);
+                    UpdateUi();
+                    StoryList.Items.Add($"You used {selectedItemName}");
                     break;
             }
         }

@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using TextAdventureWPF.Model;
 
 namespace TextAdventureWPF.Interfaces
 {
@@ -8,5 +7,6 @@ namespace TextAdventureWPF.Interfaces
     {
         public string ItemName { get; set; }
         public int ItemId { get; set; }
+        public void UseItem(List<Screen> screens, int currentScreen);
     }
 }

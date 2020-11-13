@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TextAdventureWPF.Interfaces
+﻿namespace TextAdventureWPF.Interfaces
 {
     internal interface IItemKey : IItem
     {

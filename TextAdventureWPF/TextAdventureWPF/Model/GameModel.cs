@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Controls;
 using TextAdventureWPF.Interfaces;
 
 namespace TextAdventureWPF.Model
@@ -48,18 +50,11 @@ namespace TextAdventureWPF.Model
             Screens[currentScreen].Items = null;
         }
 
-        public void UseItem(object item)
+        public void Use(string selectedItemName,ItemsControl storyList)
         {
-            // Hvis item er en key
-            if (!(item is IItemKey key)) return;
-            foreach (var entrance in Screens[currentScreen].Entrances)
-            {
-                if (entrance == null) continue;
-                if (key.ScreenUnlockName == entrance.PlaceName)
-                {
-                    Screens[currentScreen].EntrancesLockedId.Remove(key.DoorUnlockDirectionId);
-                }
-            }
+            IItem selectedItem = null;
+            foreach (var thing in Player.PlayerInventory.Where(thing => thing.ItemName == selectedItemName)) selectedItem = thing;
+            selectedItem?.UseItem(Screens, currentScreen);
         }
     }
 }
