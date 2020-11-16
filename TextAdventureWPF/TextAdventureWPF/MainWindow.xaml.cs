@@ -48,9 +48,9 @@ namespace TextAdventureWPF
                     StoryList.Items.Add("Nothing to pick up");
                     break;
                 case { } item:
-                    GameModel.PickUpItem();
+                    GameModel.PickUpItems();
                     UpdateUi();
-                    StoryList.Items.Add("You picked up something");
+                    StoryList.Items.Add("You picked up everything");
                     return;
             }
         }
@@ -65,10 +65,9 @@ namespace TextAdventureWPF
                     StoryList.Items.Add("You haven't selected anything");
                     break;
                 case string selectedItem:
-                    var selectedItemName = selectedItem;
-                    GameModel.Use(selectedItemName);
+                    GameModel.Use(selectedItem);
                     UpdateUi();
-                    StoryList.Items.Add($"You used {selectedItemName}");
+                    StoryList.Items.Add($"You used {selectedItem}");
                     return;
             }
         }

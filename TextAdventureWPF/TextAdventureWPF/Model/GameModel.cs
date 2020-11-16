@@ -43,7 +43,7 @@ namespace TextAdventureWPF.Model
             CurrentScreen = Screens.IndexOf(Screens[CurrentScreen].GetAvailableTravel()[directionNum]);
         }
 
-        public void PickUpItem()
+        public void PickUpItems()
         {
             if (Screens[CurrentScreen].Items == null) return;
             Player.PlayerInventory.AddRange(Screens[CurrentScreen].Items);
