@@ -7,7 +7,7 @@ namespace TextAdventureWPF.Model
 {
     public class GameModel
     {
-        public int currentScreen;
+        public int CurrentScreen;
         public PlayerThief Player { get; set; }
         public List<Screen> Screens { get; set; }
 
@@ -37,24 +37,24 @@ namespace TextAdventureWPF.Model
 
         public void ChangeScreen(int directionNum)
         {
-            if (Screens.IndexOf(Screens[currentScreen].GetAvailableTravel()[directionNum]) == -1) return;
-            if (Screens[currentScreen].CheckIfDoorLocked(directionNum)) return;
-            Screens[currentScreen].TimesVisited++;
-            currentScreen = Screens.IndexOf(Screens[currentScreen].GetAvailableTravel()[directionNum]);
+            if (Screens.IndexOf(Screens[CurrentScreen].GetAvailableTravel()[directionNum]) == -1) return;
+            if (Screens[CurrentScreen].CheckIfDoorLocked(directionNum)) return;
+            Screens[CurrentScreen].TimesVisited++;
+            CurrentScreen = Screens.IndexOf(Screens[CurrentScreen].GetAvailableTravel()[directionNum]);
         }
 
         public void PickUpItem()
         {
-            if (Screens[currentScreen].Items == null) return;
-            Player.PlayerInventory.AddRange(Screens[currentScreen].Items);
-            Screens[currentScreen].Items = null;
+            if (Screens[CurrentScreen].Items == null) return;
+            Player.PlayerInventory.AddRange(Screens[CurrentScreen].Items);
+            Screens[CurrentScreen].Items = null;
         }
 
         public void Use(string selectedItemName)
         {
             IItem selectedItem = null;
             foreach (var thing in Player.PlayerInventory.Where(thing => thing.ItemName == selectedItemName)) selectedItem = thing;
-            selectedItem?.UseItem(Screens, currentScreen);
+            selectedItem?.UseItem(Screens, CurrentScreen);
         }
     }
 }

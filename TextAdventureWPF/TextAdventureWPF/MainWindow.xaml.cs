@@ -10,7 +10,7 @@ namespace TextAdventureWPF
 {
     public partial class MainWindow : Window
     {
-        public GameModel gameModel = new GameModel();
+        public GameModel GameModel = new GameModel();
 
         public MainWindow()
         {
@@ -20,35 +20,35 @@ namespace TextAdventureWPF
 
         public void UpdateUi()
         {
-            UiUpdate.SetMainImage(gameModel, MainImage);
+            UiUpdate.SetMainImage(GameModel, MainImage);
 
-            UiUpdate.SetButtonTextToDirectionName(gameModel, ForwardButton, 0);
-            UiUpdate.SetButtonTextToDirectionName(gameModel, BackButton, 1);
-            UiUpdate.SetButtonTextToDirectionName(gameModel, LeftButton, 2);
-            UiUpdate.SetButtonTextToDirectionName(gameModel, RightButton, 3);
+            UiUpdate.SetButtonTextToDirectionName(GameModel, ForwardButton, 0);
+            UiUpdate.SetButtonTextToDirectionName(GameModel, BackButton, 1);
+            UiUpdate.SetButtonTextToDirectionName(GameModel, LeftButton, 2);
+            UiUpdate.SetButtonTextToDirectionName(GameModel, RightButton, 3);
 
             UiUpdate.ClearLists(StoryList, InventoryList);
-            UiUpdate.AddInfoToList(StoryList, gameModel.Screens[gameModel.currentScreen].GetLocationInfo());
-            UiUpdate.AddInfoToList(InventoryList, gameModel.Player.GetInventoryInfo());
+            UiUpdate.AddInfoToList(StoryList, GameModel.Screens[GameModel.CurrentScreen].GetLocationInfo());
+            UiUpdate.AddInfoToList(InventoryList, GameModel.Player.GetInventoryInfo());
         }
 
         private void MoveButtonCall(object sender, RoutedEventArgs e)
         {
             Button button = (Button) sender;
-            gameModel.ChangeScreen(Convert.ToInt32(button.CommandParameter));
+            GameModel.ChangeScreen(Convert.ToInt32(button.CommandParameter));
             UpdateUi();
         }
 
         private void PickUpButtonCall(object sender, RoutedEventArgs e)
         {
-            switch (gameModel.Screens[gameModel.currentScreen].Items)
+            switch (GameModel.Screens[GameModel.CurrentScreen].Items)
             {
                 case null:
                     UpdateUi();
                     StoryList.Items.Add("Nothing to pick up");
                     break;
                 case { } item:
-                    gameModel.PickUpItem();
+                    GameModel.PickUpItem();
                     UpdateUi();
                     StoryList.Items.Add("You picked up something");
                     return;
@@ -66,7 +66,7 @@ namespace TextAdventureWPF
                     break;
                 case string selectedItem:
                     var selectedItemName = selectedItem;
-                    gameModel.Use(selectedItemName);
+                    GameModel.Use(selectedItemName);
                     UpdateUi();
                     StoryList.Items.Add($"You used {selectedItemName}");
                     return;

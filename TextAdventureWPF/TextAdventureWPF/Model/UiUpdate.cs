@@ -10,18 +10,18 @@ namespace TextAdventureWPF.Model
         public static void SetMainImage(GameModel gameModel, Image mainImage)
         {
             mainImage.Source =
-                new BitmapImage(new Uri(gameModel.Screens[gameModel.currentScreen].ImagePath, UriKind.Relative));
+                new BitmapImage(new Uri(gameModel.Screens[gameModel.CurrentScreen].ImagePath, UriKind.Relative));
         }
 
         public static void SetButtonTextToDirectionName(GameModel gameModel, Button button, int directionId)
         {
-            button.Content = gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[directionId] == null
+            button.Content = gameModel.Screens[gameModel.CurrentScreen].GetAvailableTravel()[directionId] == null
                 ? ""
                 :
-                gameModel.Screens[gameModel.currentScreen].CheckIfDoorLocked(directionId)
+                gameModel.Screens[gameModel.CurrentScreen].CheckIfDoorLocked(directionId)
                     ?
-                    $"{gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[directionId].PlaceName}(Locked)"
-                    : gameModel.Screens[gameModel.currentScreen].GetAvailableTravel()[directionId].PlaceName;
+                    $"{gameModel.Screens[gameModel.CurrentScreen].GetAvailableTravel()[directionId].PlaceName}(Locked)"
+                    : gameModel.Screens[gameModel.CurrentScreen].GetAvailableTravel()[directionId].PlaceName;
         }
 
         public static void ClearLists(params ItemsControl[] lists)
