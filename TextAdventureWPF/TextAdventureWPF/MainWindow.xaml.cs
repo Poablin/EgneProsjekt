@@ -57,7 +57,6 @@ namespace TextAdventureWPF
 
         private void UseButtonCall(object sender, RoutedEventArgs e)
         {
-            //Finn en måte å få ut informasjon for hva itemet man brukte gjorde
             switch (InventoryList.SelectedItem)
             {
                 case null:
@@ -67,7 +66,13 @@ namespace TextAdventureWPF
                 case string selectedItem:
                     GameModel.Use(selectedItem);
                     UpdateUi();
-                    StoryList.Items.Add($"You used {selectedItem}");
+                    IItem selectedItem2 = null;
+                    foreach (var item in GameModel.Player.PlayerInventory.Where(item => item.ItemName == selectedItem))
+                    {
+                        selectedItem2 = item;
+                    }
+                    if (selectedItem2 is IItemKey key) { StoryList.Items.Add($"You used {key.ItemName} and it unlocked the entrance to {key.ScreenUnlockName}");}
+                    else { StoryList.Items.Add($"You used {selectedItem2?.ItemName}");}
                     return;
             }
         }
