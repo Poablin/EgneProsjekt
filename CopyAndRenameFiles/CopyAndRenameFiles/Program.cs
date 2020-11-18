@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 
 namespace CopyAndRenameFiles
 {
@@ -23,7 +22,7 @@ namespace CopyAndRenameFiles
                     name = name.Substring(6);
                     name = name.Replace("_", " ");
                     name = name.Replace("  ", " ");
-                    name = name.First().ToString().ToUpper() + name.Substring(1);
+                    name = name.Substring(0, 1).ToUpper() + name.Substring(1);
                     //Her bestemmer man hvor det skal outputtes til
                     Console.WriteLine("Copying file for: " + name);
                     File.Copy($"{file}", $"{directory}\\Output\\{name}{exte}");
